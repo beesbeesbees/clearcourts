@@ -30,4 +30,4 @@ group :development do
   gem 'capistrano3-unicorn', '~> 0.2.1' # capistrano & unicorn integration
 end
 
-gem 'autoprefixer-rails', '~> 4.0.2.1'
+#gem 'autoprefixer-rails', '~> 4.0.2.1'
