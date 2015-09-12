@@ -21,7 +21,7 @@ gem 'factory-helper', '~> 1.7.3' # generate fake data
 
 group :development, :test do
   # gem 'byebug' # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-    gem 'better_errors'
+  #gem 'better_errors'
 end
 
 group :development do
@@ -34,8 +34,3 @@ gem 'autoprefixer-rails', '~> 4.0.2.1'
 gem 'sidekiq', '~> 3.5.0'
 gem 'sinatra', '~> 1.4.6'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
-  gem 'rails-assets-bootswatch'
-  #gem "rails-assets-jquery-ui"
-end
