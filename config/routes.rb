@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
 
-
-  get 'home/index'
   root 'home#index'
-
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
-
 
   namespace :admin do
     resources :users
@@ -20,6 +14,8 @@ Rails.application.routes.draw do
 
   authenticated :user, ->(user) {user.admin?} do
     root to: "admin/home#index", as: :admin_root
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/admin/sidekiq'
   end
 
   authenticated :user do
