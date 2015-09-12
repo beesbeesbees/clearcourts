@@ -5,7 +5,7 @@ class SmsWorker < Object
     @pots= TwilioClient.new
   end
 
-  def perform to:, body:
+  def perform to= ''.freeze, body= ''.freeze
     @pots.send_sms to: to, body: body
   end
 
