@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head profile="http://www.w3.org/2005/10/profile">
-    <link rel="icon" type="image/png" href="/favicon.png">
+  <head>
     <title>ClearCourts</title>
 	  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
 
@@ -22,6 +21,25 @@
 
   </head>
   <body class="controller-<%= controller.controller_name.dasherize %> action-<%= controller.action_name.dasherize %> <%= yield :body_class %>">
+    <div class="container">
+
+      <% if notice %>
+        <div class="temp alert alert-info alert-dismissable flash fade-in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div class="temp alert alert-warning alert-dismissable flash fade-in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <%= render partial: "shared/admin_navbar" %>
+
     <%= yield %>
+    </div>
   </body>
 </html>
