@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912152404) do
+ActiveRecord::Schema.define(version: 20150912154754) do
 
   create_table "citations", force: :cascade do |t|
     t.integer  "citation_number",        limit: 4
@@ -21,12 +21,20 @@ ActiveRecord::Schema.define(version: 20150912152404) do
     t.datetime "date_of_birth"
     t.string   "defendant_address",      limit: 255
     t.string   "defendant_city",         limit: 255
-    t.string   "defendent_state",        limit: 255
+    t.string   "defendant_state",        limit: 255
     t.string   "drivers_license_number", limit: 255
     t.integer  "court_id",               limit: 4
     t.datetime "court_date"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+  end
+
+  create_table "courts", force: :cascade do |t|
+    t.string   "court_location", limit: 255
+    t.string   "court_address",  limit: 255
+    t.integer  "dress_code_id",  limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "violations", force: :cascade do |t|
