@@ -12,7 +12,4 @@ class User < ActiveRecord::Base
     role == "court"
   end
 
-  def court
-    Court.find(court_id)
-  end
 end
