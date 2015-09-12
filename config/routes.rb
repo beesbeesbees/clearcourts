@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
 
+  get :begin, to: "home#begin"
+  get :last_citation, to: "home#last_citation"
+  get :dob, to: "home#dob"
+  get :citations, to: "home#citations"
+  get :single_citation, to: "home#single_citation"
+
+  get :sessions, to: "home#sessions"
+
   post :sms, to: 'twilio#sms'
 
   namespace :admin do
