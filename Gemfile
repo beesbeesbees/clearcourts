@@ -35,6 +35,7 @@ gem 'autoprefixer-rails', '~> 4.0.2.2'
 gem 'sidekiq', '~> 3.5.0'
 gem 'sinatra', '~> 1.4.6'
 gem 'state_machine', github: 'excid3/state_machine'
+gem 'twilio-ruby', '~> 4.3.0'
 
 
 gem 'font-awesome-sass', '~> 4.2.2'
@@ -45,3 +46,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootswatch'
   gem "rails-assets-jquery-ui"
 end
+
+gem 'devise', '~> 3.5.1'
+gem 'devise_invitable', '~> 1.5.1'
+
