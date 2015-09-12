@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  court_location: MyString
+  court_address: MyString
+  dress_code_id: 1
+
+two:
+  court_location: MyString
+  court_address: MyString
+  dress_code_id: 1
