@@ -34,4 +34,5 @@ end
 gem 'autoprefixer-rails', '~> 4.0.2.1'
 gem 'sidekiq', '~> 3.5.0'
 gem 'sinatra', '~> 1.4.6'
+gem 'state_machine', github: 'excid3/state_machine'
 
