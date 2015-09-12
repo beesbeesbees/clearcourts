@@ -21,7 +21,7 @@ gem 'factory-helper', '~> 1.7.3' # generate fake data
 
 group :development, :test do
   # gem 'byebug' # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-    gem 'better_errors'
+  #gem 'better_errors'
 end
 
 group :development do
