@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  citation_number: 1
+  citation_date: 2015-09-12 10:19:13
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: 2015-09-12 10:19:13
+  defendant_address: MyString
+  defendant_city: MyString
+  defendent_state: MyString
+  drivers_license_number: MyString
+  court_id: 1
+  court_date: 2015-09-12 10:19:13
+
+two:
+  citation_number: 1
+  citation_date: 2015-09-12 10:19:13
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: 2015-09-12 10:19:13
+  defendant_address: MyString
+  defendant_city: MyString
+  defendent_state: MyString
+  drivers_license_number: MyString
+  court_id: 1
+  court_date: 2015-09-12 10:19:13
