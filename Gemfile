@@ -30,7 +30,7 @@ group :development do
   gem 'capistrano3-unicorn', '~> 0.2.1' # capistrano & unicorn integration
   gem 'capistrano-sidekiq', '~> 0.5.3'
 
-  gem 'annotate'#, '~> '
+  gem 'annotate', '~> 2.6.10'
 end
 
 gem 'autoprefixer-rails', '~> 4.0.2.2'
