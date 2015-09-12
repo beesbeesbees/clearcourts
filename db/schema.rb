@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912151913) do
+ActiveRecord::Schema.define(version: 20150912152404) do
 
   create_table "citations", force: :cascade do |t|
     t.integer  "citation_number",        limit: 4
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 20150912151913) do
     t.datetime "court_date"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+  end
+
+  create_table "violations", force: :cascade do |t|
+    t.string   "violation_number",      limit: 255
+    t.string   "citation_id",           limit: 255
+    t.string   "violation_description", limit: 255
+    t.boolean  "warrant_status"
+    t.string   "status",                limit: 255
+    t.string   "warrant_number",        limit: 255
+    t.datetime "status_date"
+    t.integer  "fine_amount",           limit: 4
+    t.integer  "court_cost",            limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
 end

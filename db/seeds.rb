@@ -1,7 +1,23 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+
+csv_file_path = 'db/seed_data/citations.csv'
+
+CSV.foreach(csv_file_path, headers: true) do |row|
+  citation = Citation.first_or_initialize(
+    citation_number:          row['citation_number'],
+    citation_date:            row['citation_date'],
+    first_name:               row['first_name'],
+    last_name:                row['last_name'],
+    date_of_birth:            Date.strptime(row['date_of_birth'].split[0], "%m/%d/%Y"),
+    defendant_address:        row['defendant_address'],
+    defendant_city:           row['defendant_city'],
+    defendant_state:          row['defendant_state'],
+    drivers_license_number:   row['drivers_license_number'],
+    court_date:               Date.strptime(row['court_date'].split[0], "%m/%d/%Y"),
+  )
+  citation.save
+  break
+end
+
+,court_location,court_address
+
