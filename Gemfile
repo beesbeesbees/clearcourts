@@ -17,16 +17,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the A
 gem 'unicorn', '~> 4.9.0' # Use Unicorn as the app server
 gem 'dotenv', '~> 2.0.2' # pull credentials from the machine currently running
 
-
-
 gem 'factory-helper', '~> 1.7.3' # generate fake data
 
 group :development, :test do
   # gem 'byebug' # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+    gem 'better_errors'
 end
 
 group :development do
   gem 'capistrano-rails', '~> 1.1.3' # Use Capistrano for deployment
   gem 'rvm1-capistrano3', '~> 1.3.2.2', require: false # capistrano & rvm integration
   gem 'capistrano3-unicorn', '~> 0.2.1' # capistrano & unicorn integration
+end
+
+gem 'autoprefixer-rails', '~> 4.0.2.1'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-bootswatch'
+  #gem "rails-assets-jquery-ui"
 end
