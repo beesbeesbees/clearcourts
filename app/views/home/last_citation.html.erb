@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+<div class="container">
+  <h2 class="gray">Thanks, <span class="green-dark"><%#= First Name Here %>First Name</span>.
+    <br>
+    Now your <span class="green">last name</span>, or your <span class="green">citation number</span> if you know it.
+  </h2>
+  <section class="form-section">
+    <%= form_for Session.new, :html => {:class => 'form'} do |f| %>
+      <div class="form-group">
+        <%= label_tag(:last_name, "Last Name:") %>
+        <%= text_field(:last_name, :last_name, class: "form-control") %>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:citation_number, "Citation Number:") %>
+        <%= text_field(:citation_number, :citation_number, class: "form-control", placeholder: 'This is typically an 8 or 9 digit number') %>
+      </div>
+      <%= submit_tag "Next", class: "btn btn-primary btn-block" %>
+    <% end %>
+  </section>
+</div>

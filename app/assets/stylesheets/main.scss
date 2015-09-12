@@ -1,7 +1,85 @@
-body {
-  background-color: #27364F;
-  h1 {
-    color: #4268A5;
-  }
+// Overrides
+.btn {
+	font-family: $font-family-sans-serif;
+	text-transform: uppercase;
+}
+.btn-primary {
+	color: white !important;
+    background-color: $btn-primary-bg !important;
+    border-color: $btn-primary-border !important;
+    &:hover {
+    	background-color: $brand-secondary !important;
+    }
 }
 
+// Home/Landing
+
+.controller-home .navbar {
+	margin-bottom: 0;
+}
+
+#banner {
+	background-image: image-url("banner.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	z-index: 0;
+	.overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: block;
+		background-color: $brand-secondary;
+		opacity: 0.1;
+		z-index: 1;
+	}
+	.container {
+		padding: 45px 10px;
+	}
+	h1, h2, h3, h4, h5 {
+		position: relative;
+		z-index: 2;
+	}
+	h4 {
+		border-top: 1px solid white;
+		padding: 15px 0;
+		font-family: $font-family-serif;
+	}
+	.btn {
+		font-size: 30px;
+		position: relative;
+		z-index: 2;
+	}
+}
+.single-icon {
+	text-align: center;
+	margin: 20px auto 40px;
+}
+.help-block {
+	border-bottom: 1px solid $gray-lighter;
+	&.warrant {
+		color: #a94442;
+	}
+}
+.list-group-item {
+	h5 {
+		margin-bottom: 5px;	
+	}
+	.btn {
+		margin-bottom: 5px;
+	}
+}
+.payment-options {
+	.btn-group {
+		width: 100%;
+	}
+}
+.dropdown-menu {
+	@media (max-width: $screen-sm) {
+		width: 100%;
+	}
+	> li > a {
+		text-align: center;
+	}
+}
