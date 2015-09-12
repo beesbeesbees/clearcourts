@@ -3,22 +3,22 @@ class Session < ActiveRecord::Base
 
   state_machine :state, initial: :begun do
  	event :started_process do
-		transition :begun => :got_first_name
+		transition :begun => :said_hi
 		#ask for first name
 	end
 
 	event :added_first_name do
-		transition :got_first_name => :got_search_criteria
+		transition :said_hi => :got_first_name
 		#ask if they want to search by name or citation number. they will enter the number or their name
 	end
 
 	event :added_citation_number do
-		transition :got_search_criteria => :got_citation_number
+		transition :got_first_name => :got_citation_number
 		#query the db
 	end
 
 	event :added_last_name do
-		transition :got_search_criteria => :got_last_name
+		transition :got_first_name => :got_last_name
 		#ask for year of birth
 	end
 
@@ -38,7 +38,7 @@ class Session < ActiveRecord::Base
 	end
 
 	event :query_db do
-		transition :got_birth_day, :got_citation_number => :showed_citation_results
+		transition [:got_birth_day, :got_citation_number] => :showed_citation_results
 		#query the db
 	end	
 
