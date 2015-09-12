@@ -42,13 +42,23 @@ class Session < ActiveRecord::Base
 		#ask user to choose one or none
 	end
 
-	event :get_choice do
+	event :chose_citation do
 		transition :citation_results => :chose_one_citation
-		#set up reminders. user can choose court info, payment options, other options, view other citations
+		#set up reminders. show overall citation info. user can choose court info, payment options, other options, view other citations
 	end
 
-	event :single_citation do
+	event :court_info do
 		transition :chose_one_citation => :court_info
+		#
+	end
+
+	event :payment_options do
+		transition :chose_one_citation => :payment_options
+		#
+	end
+
+	event :other_options do
+		transition :chose_one_citation => :other_options
 		#
 	end
 
@@ -60,9 +70,3 @@ class Session < ActiveRecord::Base
   end
 
 end
-
-#single_citation_chosen (create reminder here)
-#payment
-#court_info
-#resolved
-#finished
