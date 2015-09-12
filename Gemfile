@@ -17,8 +17,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc # bundle exec rake doc:rails generates the A
 gem 'unicorn', '~> 4.9.0' # Use Unicorn as the app server
 gem 'dotenv', '~> 2.0.2' # pull credentials from the machine currently running
 
-
-
 gem 'factory-helper', '~> 1.7.3' # generate fake data
 
 group :development, :test do
