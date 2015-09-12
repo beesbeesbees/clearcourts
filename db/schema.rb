@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912174310) do
+ActiveRecord::Schema.define(version: 20150912174357) do
 
   create_table "citations", force: :cascade do |t|
     t.integer  "citation_number",        limit: 4
@@ -35,6 +35,13 @@ ActiveRecord::Schema.define(version: 20150912174310) do
     t.integer  "dress_code_id",  limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.datetime "send_date"
+    t.integer  "session_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "sessions", force: :cascade do |t|
