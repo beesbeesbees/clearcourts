@@ -2,11 +2,25 @@
 <html>
   <head>
     <title>ClearCourts</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+	  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
     <%= csrf_meta_tags %>
+		<!-- TypeKit -->
+		<script src="https://use.typekit.net/efc2etc.js"></script>
+		<script>try{Typekit.load({ async: true });}catch(e){}</script>
+		<!-- end TypeKit -->
+
+		<!-- Google Chrome Frame for IE -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<!-- mobile meta (hooray!) -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"/>
+
   </head>
-  <body>
+  <body class="controller-<%= controller.controller_name.dasherize %> action-<%= controller.action_name.dasherize %> <%= yield :body_class %>">
     <%= yield %>
   </body>
 </html>

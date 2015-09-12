@@ -34,7 +34,12 @@ gem 'autoprefixer-rails', '~> 4.0.2.2'
 gem 'sidekiq', '~> 3.5.0'
 gem 'sinatra', '~> 1.4.6'
 
-gem 'bootstrap-sass', '~> 3.3.1.0'
+
 gem 'font-awesome-sass', '~> 4.2.2'
 
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-bootswatch'
+  gem "rails-assets-jquery-ui"
+end
