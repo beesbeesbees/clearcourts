@@ -1,0 +1,8 @@
+/* TEAM */
+
+GlobalHack5: team: BeesBeesBees
+  Brian Giaraffa
+  Chris Zempel
+  Kathy Heffern
+  Reid Burnett
+  Tyler Kessler
