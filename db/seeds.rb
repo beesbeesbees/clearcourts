@@ -17,3 +17,16 @@ CSV.foreach(csv_file_path, headers: true) do |row|
 end
 
 puts "Imported #{count} citation records"
+
+
+csv_file_path = 'db/seed_data/violations.csv'
+
+count = 0
+
+CSV.foreach(csv_file_path, headers: true) do |row|
+  violation = CreateViolation.call(row)
+
+  count += 1
+end
+
+puts "Imported #{count} violation records"
