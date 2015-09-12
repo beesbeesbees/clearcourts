@@ -28,6 +28,7 @@ group :development do
   gem 'capistrano-rails', '~> 1.1.3' # Use Capistrano for deployment
   gem 'rvm1-capistrano3', '~> 1.3.2.2', require: false # capistrano & rvm integration
   gem 'capistrano3-unicorn', '~> 0.2.1' # capistrano & unicorn integration
+  gem 'capistrano-sidekiq', '~> 0.5.3'
 end
 
 gem 'autoprefixer-rails', '~> 4.0.2.1'
