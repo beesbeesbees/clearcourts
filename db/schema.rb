@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912202151) do
+ActiveRecord::Schema.define(version: 20150912203732) do
 
   create_table "citations", force: :cascade do |t|
     t.integer  "citation_number",        limit: 4
