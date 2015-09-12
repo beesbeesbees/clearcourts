@@ -7,7 +7,7 @@ set :linked_files, %w{.env.staging .env.production}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 set :deploy_to, '/home/rails/rails_project'
 
-set :bundle_binstubs, nil
+set :bundle_binstubs, true
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
