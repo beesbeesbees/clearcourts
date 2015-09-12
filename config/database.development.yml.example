@@ -1,0 +1,2 @@
+database: your_custom_database_name
+socket: /path/to/your/mysqld.sock
