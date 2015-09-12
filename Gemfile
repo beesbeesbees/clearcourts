@@ -31,9 +31,3 @@ group :development do
 end
 
 gem 'autoprefixer-rails', '~> 4.0.2.1'
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
-  gem 'rails-assets-bootswatch'
-  #gem "rails-assets-jquery-ui"
-end
