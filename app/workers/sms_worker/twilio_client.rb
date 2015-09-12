@@ -1,4 +1,4 @@
-class SmsWorker::Twilio < Object
+class SmsWorker::TwilioClient < Object
   require 'twilio-ruby'
   def initialize
     account_sid= ENV['TWILIO_ACCOUNT_SID'.freeze]
@@ -6,7 +6,7 @@ class SmsWorker::Twilio < Object
     @account= Twilio::REST::Client.new(account_sid, account_token).account.account
   end
 
-  def send_sms to:, from:, body:
+  def send_sms to:, body:
     begin
       @account.messages.create(
         from: ENV['CLEARCOURTS_PHONE_NUMBER'.freeze],
