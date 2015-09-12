@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
 
-  root 'home#index'
   post :sms, to: 'twilio#sms'
 
   namespace :admin do
@@ -22,5 +21,6 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: "home#landing", as: :user_root
   end
+  root 'home#index' #non-users
 
 end
