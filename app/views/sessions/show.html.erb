@@ -5,7 +5,7 @@
 		<% if @citations.count >= 1 %>
 			<h2 class="gray">Great, thanks!</h2>
 			<h3>We've found 
-				<span class="green"><%= @citations.count %> citation<% if @citations.count > 1 %>s<% end %> for you</span>, <%#= first_name %>.
+				<span class="green"><%= @citations.count %> citation<% if @citations.count > 1 %>s<% end %> for you</span>, <%= @session.first_name %>.
 			</h3>
 			<section class="citations-group">
 				<div class="list-group">
