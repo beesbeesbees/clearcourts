@@ -1,0 +1,10 @@
+<%= render "shared/header" %>
+<div id="content">
+  <div class="container">
+    <div class="row text-center">
+      <h1>Payment confirmed!</h1>
+      <p>record this number for your records:</p>
+      <p><%= (0...50).map { ('a'..'z').to_a[rand(26)] }.join %></p>
+    </div>
+  </div>
+</div>

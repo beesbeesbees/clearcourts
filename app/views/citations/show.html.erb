@@ -8,7 +8,9 @@
     <h3>How to Resolve</h3>
     <span class="help-block">Click an option below:</span>
     <div class="btn-group btn-group-lg" role="group">
-      <button type="button" class="btn btn-default"><%= icon('usd', '', id: 'pay-online', class: '') %>Pay<br><span class="small">Options</span></button>
+      <%= link_to pay_citation_path(@citation), class: "btn btn-default" do %>
+        <%= icon('usd', '', id: 'pay-online', class: '') %>Pay<br><span class="small">Options</span>
+      <% end %>
       <%= link_to court_path(@citation.court), class: "btn btn-default" do %>
         <%= icon('balancescale', '', id: 'court-info', class: '') %>Court<br><span class="small">Info</span>
       <% end %>
