@@ -3,6 +3,7 @@ class TwilioController < ApplicationController
   before_filter :verify_account
 
   def sms
+    @session= Session.where(phone_number: params[:From]).first_or_initialize
     SmsWorker.perform_in(2.seconds,
       twilio_params[:From],  #send the text to the number we received this one from
       'f'<< render_action_to_s(SmsController, @session.next_action, twilio_params).to_s #render the view into the SMS body
