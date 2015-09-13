@@ -38,7 +38,15 @@ class Citation < ActiveRecord::Base
   #   violations.each do |v|
   #     v.warrant_status
   #   end
-  # end
+  # 
+
+  def has_warrant?
+    if violations.where(warrant_status: true).count == 0
+      false
+    else
+      true
+    end
+  end
 
   def self.import(file)
     count = 0
