@@ -1,0 +1,30 @@
+<%= form_for [:admin, @user] do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<div class="form-group">
+  <%= f.text_field :email, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :court_id, "Court:" %>
+  <%= f.select :court_id, options_from_collection_for_select(Court.all, "id", "court_address"), class: "form-control"  %>
+</div>
+
+<div class="form-group">
+  <%= f.label :role %>
+  <%= f.select :role, options_for_select(["admin", "court"]), class: "form-control" %>
+</div>
+
+<div class="actions">
+  <%= f.submit class: "btn btn-caution" %>
+  <%= link_to "Delete", admin_user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"}, class: "btn btn-danger pull-right" %>
+</div>
+<% end %>
