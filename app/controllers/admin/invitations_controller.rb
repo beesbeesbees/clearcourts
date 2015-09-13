@@ -7,10 +7,13 @@ class Admin::InvitationsController < Devise::InvitationsController
     render :new
   end
 
+  def create
+    super
+  end
 
   private
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:accept_invitation).concat [:court_id]
-      devise_parameter_sanitizer.for(:invite).concat [:court_id]
+      devise_parameter_sanitizer.for(:accept_invitation).concat [:court_id, :role]
+      devise_parameter_sanitizer.for(:invite).concat [:court_id, :role]
     end
 end
