@@ -1,0 +1,65 @@
+<%= render "shared/header" %>
+<div class="container">
+  <h2 class="gray">Alright - choose something or something, <br><span class="green">Citizen</span>.</h2>
+  <h4>As a reminder, your citation number is <%#= citation_number %> <span class="green">citation_number</span></h4>
+  <h4 class="text-danger">Your total fees are <strong>$<%#= total_fees %>total_fees.00</strong> and payment is due by <%#= court_date %>court_date</h4>
+  <section class="pay-tabs">
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs capitalize" role="tablist">
+        <li role="presentation" class="active"><a href="#online" aria-controls="online" role="tab" data-toggle="tab">Online</a></li>
+        <li role="presentation"><a href="#in-person" aria-controls="in-person" role="tab" data-toggle="tab">In Person</a></li>
+        <li role="presentation"><a href="#phone" aria-controls="phone" role="tab" data-toggle="tab">Phone</a></li>
+        <li role="presentation"><a href="#mail" aria-controls="mail" role="tab" data-toggle="tab">Mail</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="online">
+          <h3>Pay Online</h3>
+          <p>A mote of dust suspended in a sunbeam cosmos radio telescope preserve and cherish that pale blue dot.</p>
+          <a href="#<%#= stripe_url %>" class="btn btn-primary btn-lg">Click to Pay Now</a>
+        </div> <!-- #online -->
+        <div role="tabpanel" class="tab-pane" id="in-person">
+          <h3>In Person</h3>
+          <p>A mote of dust suspended in a sunbeam cosmos radio telescope preserve and cherish that pale blue dot.</p>
+          <section class="location-info">
+            <h4>Payment Places:</h4>
+            <div class="list-group">
+              <div class="list-group-item">
+                <h4 class="list-group-item-heading"><%#= payment_place %>payment_place</h4>
+                <ul class="list-unstyled">
+                  <li>Address</li>
+                  <li>Hours</li>
+                </ul>
+              </div> <!-- .list-group-item -->
+              <div class="list-group-item">
+                <h4 class="list-group-item-heading"><%#= payment_place %>payment_place</h4>
+                <ul class="list-unstyled">
+                  <li>Address</li>
+                  <li>Hours</li>
+                  <li>Phone</li>
+                  <li><a href="#">click for map</a></li>
+                </ul>
+              </div> <!-- .list-group-item -->
+            </div> <!-- .list-group -->
+          </section>
+        </div> <!-- #in-person -->
+        <div role="tabpanel" class="tab-pane" id="phone">
+          <h3>Pay by Phone</h3>
+        </div> <!-- #phone -->
+        <div role="tabpanel" class="tab-pane" id="mail">
+          <h3>Pay by Mail</h3>
+          <p>Payments can be made by mail by sending the ticket along with personal check, cashier's check or money order to:</p>
+          <address>
+            
+          </address>
+          <h4>Payable to: <span class="green"><%#= payable_to %>payable_to</h4>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

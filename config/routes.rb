@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations", invitations: "admin/invitations" }
 
+  get :begin, to: "home#begin"
+  get :last_citation, to: "home#last_citation"
+  get :dob, to: "home#dob"
+  get :citations, to: "home#citations"
+  get :single_citation, to: "home#single_citation"
+  get :pay, to: "home#pay"
+  get :court, to: "home#court"
 
-  get 'home/index'
-  root 'home#index'
+  get :sessions, to: "home#sessions"
 
-  require 'sidekiq/web'
-  mount Sidekiq::Web => '/sidekiq'
-
+  post :sms, to: 'twilio#sms'
 
   namespace :admin do
     resources :users
@@ -18,10 +22,17 @@ Rails.application.routes.draw do
     resources :courts
   end
 
-  authenticated :user, ->(user) {user.admin? || user.court_user?} do
-    root to: "admin/users#index", as: :admin_root
+  resources :sessions
+
+  authenticated :user, ->(user) {user.admin?} do
+    root to: "admin/home#index", as: :admin_root
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/admin/sidekiq'
   end
 
-  root to: "home#landing", as: :user_root
+  authenticated :user do
+    root to: "home#landing", as: :user_root
+  end
+  root 'home#index' #non-users
 
 end

@@ -1,0 +1,12 @@
+<%= render "shared/header" %>
+<div class="container">
+  <h2 class="gray">For an extra security measure, please confirm your <span class="green-dark">Date of Birth</span>.</h2>
+  <section class="form-section">
+    <%= form_for Session.new, :html => {:class => 'form'} do |f| %>
+      <div class="form-group">
+        <%= label_tag(:dob, "Date of Birth:") %>
+        <%= date_field_tag 'dob', '01/01/1980', class: 'form-control input-lg' %>
+      </div>
+      <%= submit_tag "Next", class: "btn btn-primary btn-block btn-lg" %>
+    <% end %>
+  </section>

@@ -1,0 +1,13 @@
+<%= render "shared/header" %>
+<div class="container">
+  <h2 class="gray">To get started please tell me your <br><span class="green">First Name</span>.</h2>
+  <section class="form-section">
+    <%= form_for Session.new, :html => {:class => 'form'} do |f| %>
+      <div class="form-group">
+        <%= label_tag(:first_name, "First Name:") %>
+        <%= text_field(:first_name, :first_name, class: "form-control input-lg") %>
+      </div>
+      <%= submit_tag "Next", class: "btn btn-primary btn-block btn-lg" %>
+    <% end %>
+  </section>
+</div>

@@ -1,18 +1,30 @@
-<style type="text/css" media="screen">
-      body {
-        text-align:center;
-        margin: 0;
-        margin-bottom: 25px;
-        padding: 0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-        font-size: 13px;
-        color: #333;
-      }
-
-      h1 {
-        font-size: 28px;
-        color: #000;
-      }
-
-</style>
-<h1 align="center">ClearCourts</h1>
+<%= render "shared/header" %>
+<div id="banner">
+  <div class="overlay"></div> <!-- .overlay -->
+  <div class="container text-center">
+    <h1 class="gray"><span class="green">Find</span> and <span class="green">Resolve</span> Your Citations</h1>
+    <h4 class="gray">I can help you look up your court citations, violations, and pay your tickets.</h4>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <%= link_to "Begin", new_session_path, id: "get-started", class: "btn btn-primary btn-block btn-md" %>
+      </div>
+    </div>
+  </div>
+</div> <!-- #banner -->
+<div id="icons" class="container">
+  <h2 class="text-center underline">Get Informed About Your [Buzzword]</h2>
+  <div class="row">
+    <div class="col-sm-4 single-icon">
+      <%= icon('search', '', id: 'lookup', class: 'fa-5x green underline') %>
+      <h3>Look Up Your Citation</h3>
+    </div>
+    <div class="col-sm-4 single-icon">
+      <%= icon('calendar', '', id: 'get-court-date', class: 'fa-5x green underline') %>
+      <h3>Get Court Date</h3>
+    </div>
+    <div class="col-sm-4 single-icon">
+      <%= icon('usd', '', id: 'pay-online', class: 'fa-5x green underline') %>
+      <h3>Pay Online</h3>
+    </div>
+  </div>
+</div> <!-- .icons -->
