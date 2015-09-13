@@ -12,12 +12,13 @@ class SmsController < ApplicationController
 
   def greeting_3
     get_session
-    if body=~ /0123456789/
+    if body.to_s.ltrim.rtrim.length> 0
+      @session.update(first_name: body.to_s.ltrim.rtrim)
       next_state 'greeting_4'.freeze
-      render partial: 'greeting_3'.freeze, locals: {body: @body}
+      render partial: 'greeting_3'.freeze, locals: {body: @body, done: true}
     else
-      next_state 'greeting_6'.freeze
-      render partial: 'greeting_3'.freeze, locals: {body: @body}
+      next_state 'greeting_3'.freeze
+      render partial: 'greeting_3'.freeze, locals: {body: @body, done: false}
     end
   end
 
