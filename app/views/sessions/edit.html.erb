@@ -1,40 +1,42 @@
 <%= render "shared/header" %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h2 class="gray">For an extra security measure, please confirm your <br class="hidden-xs"> <span class="green-dark">Date of Birth</span>.</h2>
-      <section class="form-section clearfix">
-        <%= form_for @session, :html => {:class => 'form'} do |f| %>
-          <% if @session.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:</h2>
-              <ul>
-              <% @session.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="gray">For an extra security measure, please confirm your <br class="hidden-xs"> <span class="green-dark">Date of Birth</span>.</h2>
+        <section class="form-section clearfix">
+          <%= form_for @session, :html => {:class => 'form'} do |f| %>
+            <% if @session.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:</h2>
+                <ul>
+                <% @session.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="row">
+              <div class="form-group col-md-4">
+                <%= f.label :birth_month, "Month" %>
+                <%= f.select :birth_month, 1..12, {selected: (1) }, {:class => "form-control input-lg"} %>
+              </div>
+              <div class="form-group col-md-4">
+                <%= f.label :birth_day, "Day" %>
+                <%= f.select :birth_day, 1..31, {selected: (1) }, {:class => "form-control input-lg"} %>
+              </div>
+              <div class="form-group col-md-4">
+                <%= f.label :birth_year, "Year" %>
+                <%= f.select :birth_year, options_for_select((1900..2015), 1980), {selected: (1980) }, {:class => "form-control input-lg"} %>
+              </div>
+            </div>
+            <div class="actions col-md-6 col-md-offset-3">
+              <%= f.submit "Next", class: "btn btn-primary btn-block btn-lg" %>
             </div>
           <% end %>
-          <div class="row">
-            <div class="form-group col-md-4">
-              <%= f.label :birth_month, "Month" %>
-              <%= f.select :birth_month, 1..12, {selected: (1) }, {:class => "form-control input-lg"} %>
-            </div>
-            <div class="form-group col-md-4">
-              <%= f.label :birth_day, "Day" %>
-              <%= f.select :birth_day, 1..31, {selected: (1) }, {:class => "form-control input-lg"} %>
-            </div>
-            <div class="form-group col-md-4">
-              <%= f.label :birth_year, "Year" %>
-              <%= f.select :birth_year, options_for_select((1900..2015), 1980), {selected: (1980) }, {:class => "form-control input-lg"} %>
-            </div>
-          </div>
-          <div class="actions col-md-6 col-md-offset-3">
-            <%= f.submit "Next", class: "btn btn-primary btn-block btn-lg" %>
-          </div>
-        <% end %>
-      </section>
-      <a class="start-over" href="/sessions/new">&lt; Start Over</a>
+        </section>
+        <a class="start-over" href="/sessions/new">&lt; Start Over</a>
+      </div>
     </div>
   </div>
-</div>
+</div> <!-- #content -->
