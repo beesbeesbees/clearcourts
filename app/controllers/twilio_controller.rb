@@ -40,7 +40,7 @@ private
     instance.request= @_request
     instance.response= @_response
     instance.params= params
-    instance.process_action(action)
+    #instance.process_action(action)
     instance.send(action)
     instance.response.body
   end
