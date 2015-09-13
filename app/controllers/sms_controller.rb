@@ -82,7 +82,7 @@ class SmsController < ApplicationController
     if (body.to_s.length> 0) && @session.update(citation_number: body.to_s.to_i)
       if Citation.where(citation_number: body).count> 0
         next_state 'citation_2'.freeze
-        render partial: 'citation_1'.freeze, locals: {body: @body, session: @session, done: true, citations: Citation.where(citation_number: body)}
+        render partial: 'citation_1'.freeze, locals: {body: @body, session: @session, done: true, citations: Citation.where(citation_number: body).limit(5)}
       else
         next_state 'restart_1'.freeze
         render partial: 'citation_1'.freeze, locals: {body: @body, session: @session, done: true, citations: Citation.none}
@@ -98,7 +98,8 @@ class SmsController < ApplicationController
     if body.to_s=~ /^[0-3][0-9]$/
       @session.update(birth_day: body.to_s.to_i)
       next_state 'citation_3'.freeze
-      render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: true}
+      @citations= Citation.where(@session.citation_number).limit(5)
+      render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: true, citations: @citations}
     else
       next_state 'citation_2'.freeze
       render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: false}
