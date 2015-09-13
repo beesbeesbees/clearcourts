@@ -25,6 +25,9 @@ class Citation < ActiveRecord::Base
 
   accepts_nested_attributes_for :violations
 
+  def self.find_by_session(session)
+    self.where(first_name: session.first_name, last_name: session.last_name) + self.where(date_of_birth: session.dob)
+  end
 
   def formatted_date(date)
     if date

@@ -53,4 +53,12 @@ class Session < ActiveRecord::Base
       state.to_s.to_sym
     end
   end
+
+  def dob_string
+    "#{birth_day}/#{birth_month}/#{birth_year} 00:00:00"
+  end
+
+  def dob
+    dob_string.to_datetime
+  end
 end
