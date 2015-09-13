@@ -28,7 +28,11 @@ class Session < ActiveRecord::Base
 
   validates :state, inclusion: {in: %w[
     greeting_1 greeting_3 greeting_4 greeting_5 greeting_6 greeting_7
-  ]}, unless: 'web?'.freeze
+    citation_1 citation_2 citation_3 citation_4a citation_4b citation_5
+    payment_1 payment_2a payment_2b payment_3a payment_3b payment_4a payment_4b payment_5 payment_6a payment_6b payment_7
+    courts_1a courts_1b courts_2 courts_3 courts_4 courts_5
+    restart_1 end_1
+  ]}, unless:'web?'.freeze
 
   validates :state, inclusion: {in: [nil]}, if: 'web?'.freeze
 
