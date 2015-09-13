@@ -27,30 +27,37 @@ class SmsController < ApplicationController
     if ['IPHONE', 'ANDROID'].include? body.upcase
       @session.update(phone_type: body.upcase)
       next_state 'greeting_5'.freeze
-      render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session}
+      render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session, done: true}
     else
       @session.update(phone_type: 'OTHER')
       next_state 'greeting_5'.freeze
-      render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session}
+      render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session, done: true}
     end
   end
 
   def greeting_5
     get_session
-    next_state 'greeting_6'.freeze
-    render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session}
+    if body.to_s=~ /[^0123456789]/
+      @session.update(citation_number: body.to_s)
+      next_state 'greeting_5'.freeze
+      render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session, done: true}
+    else
+      @session.update(last_name: body.to_s)
+      next_state 'greeting_5'.freeze
+      render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session, done: true}
+    end
   end
 
   def greeting_6
     get_session
     next_state 'greeting_7'.freeze
-    render partial: 'greeting_6'.freeze, locals: {body: @body, session: @session}
+    render partial: 'greeting_6'.freeze, locals: {body: @body, session: @session, done: true}
   end
 
   def greeting_7
     get_session
     next_state 'greeting_1'.freeze
-    render partial: 'greeting_7'.freeze, locals: {body: @body, session: @session}
+    render partial: 'greeting_7'.freeze, locals: {body: @body, session: @session, done: true}
   end
 
 private
