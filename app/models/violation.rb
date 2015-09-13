@@ -32,4 +32,9 @@ class Violation < ActiveRecord::Base
     end
     count
   end
+
+  def total_cost
+    court_cost + fine_amount
+  end
+
 end

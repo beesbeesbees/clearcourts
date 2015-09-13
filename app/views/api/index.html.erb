@@ -1,0 +1,224 @@
+<div class="container">
+  <div class="row">
+    <h1>API Reference</h1>
+
+    <p>The ClearCourts API is loosely organized around REST. In this early version, it's primary purpose is to provide endpoints which can accept new data the system needs to run automatically, as well as basic CRUD operations and authorization. This is a WIP - no specific versioning has been introduced yet.</p>
+    <hr />
+    <div class="row">
+      <h3><strong>Citations</strong></h3>
+      <div class="col-md-6">
+        <p>A person gets pulled over for speeding. The resulting ticket they get is a citation. The ticket might be for speeding, and an expired license.</p>
+      </div>
+      <div class="col-md-6">
+        <p>A citation is a written order, in lieu of a warrantless arrest, that is issued by a law enforcement officer or other authorized official, requiring a person to appear in a designated court or governmental office at a specified time and date. A citation can have multiple violations.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>id:</strong> "6826"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The unique identifier assigned to the citation by our system.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>citation_number:</strong> "789674515" </p>
+      </div>
+      <div class="col-md-6">
+        <p>
+          a number assigned to identify the citation. This is not unique among all citations, but rather among the citations of an indvidual munincipality.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>citation_date:</strong> "2015-03-09 00:00:00"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The date when the citation was issued.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>first_name:</strong> "Wanda"</p>
+        <p><strong>last_name:</strong> "Phillips"</p>
+      </div>
+      <div class="col-md-6">
+        <p>First name of the defendant.</p>
+        <p>Last name of the defendant.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>date_of_birth:</strong> "1975-12-30 00:00:00"</p>
+      </div>
+      <div class="col-md-6">
+        <p>Date of birth of the defendant.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>defendant_address:</strong> "9969 Dawn Circle"</p>
+      </div>
+      <div class="col-md-6">
+        <p>Address of the defendant.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>defendant_city:</strong> "EUREKA"</p>
+      </div>
+      <div class="col-md-6">
+        <p>City of the defendant.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>defendant_state:</strong> "MO"</p>
+      </div>
+      <div class="col-md-6">
+        <p>State of the defendant.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>court_id:</strong> "1"</p>
+      </div>
+      <div class="col-md-6">
+        <p>Unique ID of the associated court this citations belongs to.</p>
+      </div>
+    </div>
+
+    <hr />
+
+  <div class="row">
+    <h3><strong>Violations</strong></h3>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>A person gets pulled over for speeding. The resulting ticket they get is a citation. The citations have multiple violations - one for speeding, and one for an expired license.</p>
+      </div>
+      <div class="col-md-6">
+        <p>Violations are the resulting, individual records about what laws were breached, and the resulting penalties. A single citation can have many violations.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>id:</strong> "1224"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The unique identifier assigned to the violation by our system.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>violation_number:</strong> "682690971-01"</p>
+      </div>
+      <div class="col-md-6">
+        <p>A number used to identify a violation. These are not unique among all violations, but rather the munincipalities in which they exist.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>violation_description:</strong> "Improper Passing"</p>
+      </div>
+      <div class="col-md-6">
+        <p>Details about what specific circumstance the violation relates to.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>warrant_status:</strong> "1" or "0"</p>
+      </div>
+      <div class="col-md-6">
+        <p>Whether or not there's an active warrant resulting from this violation.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>warrant_number:</strong> "WA4294944"</p>
+      </div>
+      <div class="col-md-6">
+        <p>If there's an active warrant, there will be an associated warrant number. This is not unique among all warrant numbers, but rather the munincipality it was issued in.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>status:</strong> "DISMISS WITHOUT COSTS"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The resulting status of the violation.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>status_date:</strong> "2015-08-06 00:00:00"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The associated date the status of the violation was set.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>fine_amount:</strong> "8045"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The resulting 'USD' amount due for the violation, in cents.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>court_cost:</strong> "2450"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The resulting 'USD' amount due for court costs related to the violation, in cents.</p>
+      </div>
+    </div>
+
+    <hr />
+
+  <div class="row">
+    <h3><strong>Courts</strong></h3>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>Information about actual court at which the citation can be resolved.</p>
+      </div>
+      <div class="col-md-6">
+        <p>Courts have many citations, and through them, many violations.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>id:</strong> "1356"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The unique identifier assigned to the court by our system.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>court_location:</strong> "COUNTRY CLUB HILLS"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The larger region in which the court resides. There can be multiple courts in the same region.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><strong>court_address:</strong> "7422 Eunice Avenue"</p>
+      </div>
+      <div class="col-md-6">
+        <p>The specific address of the court to which the citation belongs.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="row">
+      <div class="col-md-6">
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>

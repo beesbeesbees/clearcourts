@@ -29,8 +29,23 @@ Rails.application.routes.draw do
     resources :courts
   end
 
+  namespace :api do
+    resources :courts do
+      get :citations
+    end
+
+    resources :citations do
+      resources :violations
+    end
+
+    resources :violations
+
+    get :index
+  end
+
   resources :sessions
   resources :citations, only: [:show, :index]
+  resources :courts, only: [:show, :index]
 
   authenticated :user, ->(user) {user.admin? || user.court_user?} do
     root to: "admin/citations#index", as: :admin_root
