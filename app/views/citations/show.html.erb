@@ -20,15 +20,18 @@
       </ul>
     </div>
   </section>
-  <h3>Violation Information</h3>
+  <h3>Citation Information</h3>
     <div class="list-group">
       <div class="list-group-item">
-        <h4 class="list-group-item-heading"><%#= violation_description %>violation_description</h4>
-        <span class="help-block"><%#= violation_number %>violation_number</span>
+        <% @citation.violations.each do |v| %>
+          <h4 class="list-group-item-heading"><%= v.violation_description %></h4>
+          <span >Violation number: <%= v.violation_number %></span>
+          <span class="help-block">Violation cost: <%= number_to_currency(v.total_cost.to_f/ 100, unit: '$') %></span>
+        <% end %>
         <ul class="list-unstyled">
           <li><strong>Court Location</strong>: <%= @citation.court.court_location %></li>
           <li><strong>Court Date</strong>: <%= @citation.formatted_date(@citation.court_date) %></li>
-          <li><strong>Total Court Costs</strong>: <%#= total_cost %>total_cost</li>
+          <li><strong>Total Court Costs</strong>: <%= number_to_currency(@citation.total_cost.to_f/ 100, unit: '$') %></li>
           <h5>Defendant Info:</h5>
           <li><strong>DOB</strong>: <%= @citation.formatted_date(@citation.date_of_birth) %></li>
           <li><%= @citation.defendant_address %></li>
