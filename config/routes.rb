@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get :pay, to: "home#pay"
   get :court, to: "home#court"
 
+  get :about, to: "home#about"
+
+
   get :sessions, to: "home#sessions"
 
   post :sms, to: 'twilio#sms'
