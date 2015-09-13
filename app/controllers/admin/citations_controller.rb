@@ -1,5 +1,5 @@
 class Admin::CitationsController < ApplicationController
-  before_action :set_citation, except: [:index]
+  before_action :set_citation, except: [:index, :csv, :import]
   layout "admin"
 
   def index
@@ -15,6 +15,23 @@ class Admin::CitationsController < ApplicationController
     else
       redirect_to edit_admin_citation_path(@citation), notice: "There were errors updating"
     end
+  end
+
+  def csv
+  end
+
+  def import
+    begin
+    if params[:commit] == "Import Citations"
+      count = Citation.import(params[:file])
+    else
+      count = Violation.import(params[:file])
+    end
+    rescue
+      redirect_to csv_admin_citations_path, notice: "Please upload a csv formatted properly"
+    end
+
+    redirect_to csv_admin_citations_path, notice: "Successfully imported #{count} files!"
   end
 
   private

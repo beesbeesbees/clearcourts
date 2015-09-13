@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Import Citations</h3>
+      <p>Import a properly formatted csv of citations</p>
+      <%= form_tag import_admin_citations_path, multipart: true do%>
+        <div class="form-group">
+          <%= file_field_tag :file %>
+          <br />
+          <%= submit_tag "Import Citations", class: "btn btn-info" %>
+        </div>
+        <%= link_to "Citations Example", "https://drive.google.com/file/d/0B2MsO-5Syq6_NzVhakdpNU9kYUE/view?usp=sharing", class: "btn btn-default", target: "_blank" %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <h3>Import Violations</h3>
+      <p>Import a properly formatted csv of violations</p>
+      <%= form_tag import_admin_citations_path, multipart: true do%>
+        <div class="form-group">
+          <%= file_field_tag :file %>
+          <br />
+          <%= submit_tag "Import Violations", class: "btn btn-info" %>
+        </div>
+          <%= link_to "Violations Example", "https://drive.google.com/file/d/0B2MsO-5Syq6_NWJFbUdqRlI2RUk/view?usp=sharing", class: "btn btn-default", target: "_blank" %>
+        <% end %>
+    </div>
+  </div>
+</div>

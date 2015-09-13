@@ -20,7 +20,7 @@ class Session < ActiveRecord::Base
 
   validates :state, inclusion: { in: %w[
     greeting_1 greeting_3 greeting_4 greeting_5 greeting_6 greeting_7
-  ] }
+  ] }, if: 'phone_number.!.!'.freeze
 
   def web?
     phone_number.!

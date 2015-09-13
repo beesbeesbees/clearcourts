@@ -16,9 +16,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :citations do
-      resources :violations
+      collection do
+        get :csv
+        post :import
+      end
     end
-
     resources :courts
   end
 
