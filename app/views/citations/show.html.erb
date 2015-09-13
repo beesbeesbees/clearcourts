@@ -16,12 +16,11 @@
         <%= icon('balancescale', '', id: 'court-info', class: '') %>Court<br><span class="small">Info</span>
       <% end %>
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Other<br><span class="small">Options</span>
+        If you<br><span class="small">can't pay</span>
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">Volunteer</a></li>
-        <li><a href="#">View Other Citations</a></li>
+        <li><%= link_to "Volunteer", volunteer_path%></a></li>
       </ul>
     </div>
   </section>
