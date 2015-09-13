@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
     resources :violations
 
-    get :index
+    get :docs
     get :regenerate_token
   end
 

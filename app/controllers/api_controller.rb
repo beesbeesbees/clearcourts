@@ -1,8 +1,8 @@
 class ApiController < ApplicationController
-  before_action :authorize_request!
+  before_action :authorize_request!, except: [:docs]
   layout "admin"
 
-  def index
+  def docs
   end
 
   def regenerate_token
