@@ -51,3 +51,4 @@ end
 gem 'devise', '~> 3.5.1'
 gem 'devise_invitable', '~> 1.5.1'
 
+gem 'active_model_serializers', '~> 0.9.3'
