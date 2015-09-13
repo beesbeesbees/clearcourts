@@ -7,7 +7,7 @@ class SmsController < ApplicationController
       phone_number: params[:From], #create a session
       state: 'greeting_3'.freeze, #next state
     )
-    render partial: 'greeting_1'.freeze, locals: {body: @body}
+    render partial: 'greeting_1'.freeze, locals: {body: @body}#, session: @session}
   end
 
   def greeting_3
