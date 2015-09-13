@@ -1,4 +1,5 @@
 class SmsController < ApplicationController
+  skip_before_filter :verify_authenticity_token #no web form token
 
   def greeting_1
 
