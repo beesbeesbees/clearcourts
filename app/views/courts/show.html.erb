@@ -1,71 +1,65 @@
 <%= render "shared/header" %>
 <div id="content">
-<div class="container">
-  <h2 class="gray">Court Info for <span class="green"><%= @court.court_location%></span>.</h2>
-  <section class="court-info">
-    <div class="row">
-      <div class="col-sm-8">
-        <h3>Municipal Court of <span class="capitalize"><%= @court.court_location%></span></h3>
-        <h4>
-          <address>
-            <%= @court.court_address %>
-          </address>
-        </h4>
-        <h4>Phone: <a href="tel: (314) 561-2476">(314) 561-2476</a></h4>
+  <div class="container">
+    <h2 class="gray">Court Info for <span class="green"><%= @court.court_location%></span>.</h2>
+    <section class="court-info">
+      <div class="row">
+        <div class="col-sm-8">
+          <h3>Municipal Court of <span class="capitalize"><%= @court.court_location%></span></h3>
+          <h4>
+            <address>
+              <%= @court.court_address %>
+            </address>
+          </h4>
+          <h4>Phone: <a href="tel: 1-314-561-2476">(314) 561-2476</a></h4>
 
-        <h3>Helpful Info</h3>
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <div class="panel panel-default">
-            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#court-directions" aria-expanded="true" aria-controls="court-directions">
-              <div class="panel-heading" role="tab" id="directions-heading">
-                <h4 class="panel-title">
-                    Directions
-                </h4>
-              </div>
-            </a>
-            <div id="court-directions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="directions-heading">
-              <div class="panel-body">
-                <%= render "shared/directions" %>
-              </div>
-            </div>
+          <h3>Helpful Info</h3>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             <div class="panel panel-default">
-              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#dress-code" aria-expanded="false" aria-controls="dress-code">
-                <div class="panel-heading" role="tab" id="dress-code-heading">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#court-directions" aria-expanded="true" aria-controls="court-directions">
+                <div class="panel-heading" role="tab" id="directions-heading">
                   <h4 class="panel-title">
-                      Dress Code
+                      Directions
                   </h4>
                 </div>
               </a>
-              <div id="dress-code" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dress-code-heading">
+              <div id="court-directions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="directions-heading">
                 <div class="panel-body">
-                  <%= render "shared/dress_code" %>
+                  <%= render "shared/directions" %>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#dress-code" aria-expanded="false" aria-controls="dress-code">
+                  <div class="panel-heading" role="tab" id="dress-code-heading">
+                    <h4 class="panel-title">
+                        Dress Code
+                    </h4>
+                  </div>
+                </a>
+                <div id="dress-code" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dress-code-heading">
+                  <div class="panel-body">
+                    <%= render "shared/dress_code" %>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="panel panel-default">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#your-rights" aria-expanded="false" aria-controls="your-rights">
+                <div class="panel-heading" role="tab" id="rights-heading">
+                  <h4 class="panel-title">
+                      Your Rights
+                  </h4>
+                </div>
+              </a>
+              <div id="your-rights" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rights-heading">
+                <div class="panel-body">
+                  <%= render "shared/rights" %>
+                </div>
+              </div>
+            </div> <!-- .panel-group -->
           </div>
-          <div class="panel panel-default">
-            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#your-rights" aria-expanded="false" aria-controls="your-rights">
-              <div class="panel-heading" role="tab" id="rights-heading">
-                <h4 class="panel-title">
-                    Your Rights
-                </h4>
-              </div>
-            </a>
-            <div id="your-rights" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rights-heading">
-              <div class="panel-body">
-                <%= render "shared/rights" %>
-              </div>
-            </div>
-          </div> <!-- .panel-group -->
         </div>
-      <div class="sidebar col-sm-4">
-        <h3>Pay Online</h3>
-        <p>Use our secure server to pay your court costs.</p>
-        <a href="#<%#= stripe_url %>" class="btn btn-primary btn-lg">Click to Pay Now</a>
-      </div> <!-- .sidebar -->
     </div>
   </section> <!-- .court-info -->
 </div> <!-- .container -->
-    </section> <!-- .court-info -->
-  </div> <!-- .container -->
 </div> <!-- #content -->
