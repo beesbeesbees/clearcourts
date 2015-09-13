@@ -24,7 +24,9 @@
   <body class="controller-<%= controller.controller_name.dasherize %> action-<%= controller.action_name.dasherize %>
 	  <%= yield :body_class %>">
 
-	    <%= yield %>
+    <%= yield %>
+
+		<%= render "shared/footer" %>
 	    
   </body>
 </html>

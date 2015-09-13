@@ -19,6 +19,14 @@ class Admin::UsersController < AdminController
   def edit
   end
 
+  def update
+    if @user.update user_params
+      redirect_to edit_admin_user_path(@user), notice: "User Updated Successfully!"
+    else
+      render :edit
+    end
+  end
+
   def destroy
     if @user.destroy
       redirect_to admin_users_path, notice: "User was Tahminated!"
@@ -34,6 +42,6 @@ class Admin::UsersController < AdminController
     end
 
     def user_params
-      params.require(:user).permit(:email, :client_id)
+      params.require(:user).permit(:email, :role, :court_id)
     end
 end

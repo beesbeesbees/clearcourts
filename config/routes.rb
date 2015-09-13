@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations", invitations: "admin/invitations" }
 
   get :begin, to: "home#begin"
   get :last_citation, to: "home#last_citation"
@@ -34,5 +34,7 @@ Rails.application.routes.draw do
     root to: "home#landing", as: :user_root
   end
   root 'home#index' #non-users
+
+  get :foo, to: 'sms#foo'
 
 end
