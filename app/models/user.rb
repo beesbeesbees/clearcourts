@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
 
   belongs_to :court
 
+  has_secure_token
+
   def admin?
     role == "admin"
   end
