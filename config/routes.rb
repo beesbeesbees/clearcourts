@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get :dob, to: "home#dob"
   get :citations, to: "home#citations"
   get :single_citation, to: "home#single_citation"
+  get :volunteer, to: "home#volunteer"
 
   get :about, to: "home#about"
   get :api, to: "home#api"
