@@ -1,13 +1,14 @@
 class SmsController < ApplicationController
   skip_before_filter :verify_authenticity_token #no web form token
-  before_filter :set_session
 
   def greeting_1
+    set_session
     @session.update!(stage: 'greeting_3'.freeze) #next stage
     render partial: 'greeting_1'.freeze
   end
 
   def greeting_3
+    set_session
     @session.update!(stage: 'greeting_1'.freeze) #next stage
     render partial: 'greeting_3'.freeze
   end
