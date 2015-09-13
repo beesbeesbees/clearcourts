@@ -1,40 +1,44 @@
 <%= render "shared/header" %>
 <div class="container">
-  <h2 class="gray">Here is the info for <br class="visible-xs">Citation <span class="green"><%#= citation_number %>#########</span></h2>
-  <%#= if a warrant:  %>
-  <span class="help-block warrant">A warrant was issued on MM/DD/YYYY</span>
-  <%#= endif %>
-  <section class="payment-options">
-    <h3>How to Resolve</h3>
-    <span class="help-block">Click an option below:</span>
-    <div class="btn-group btn-group-lg" role="group">
-      <button type="button" class="btn btn-default"><%= icon('usd', '', id: 'pay-online', class: '') %>Pay<br><span class="small">Options</span></button>
-      <button type="button" class="btn btn-default"><%= icon('balancescale', '', id: 'court-info', class: '') %>Court<br><span class="small">Info</span></button>
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Other<br><span class="small">Options</span>
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a href="#">Volunteer</a></li>
-        <li><a href="#">View Other Citations</a></li>
-      </ul>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h2 class="gray">Here is the info for <br class="visible-xs">Citation <span class="green"><%#= citation_number %>#########</span></h2>
+      <%#= if a warrant:  %>
+      <span class="help-block warrant">A warrant was issued on MM/DD/YYYY</span>
+      <%#= endif %>
+      <section class="payment-options">
+        <h3>How to Resolve</h3>
+        <span class="help-block">Click an option below:</span>
+        <div class="btn-group btn-group-lg" role="group">
+          <button type="button" class="btn btn-default"><%= icon('usd', '', id: 'pay-online', class: '') %>Pay<br><span class="small">Options</span></button>
+          <button type="button" class="btn btn-default"><%= icon('balancescale', '', id: 'court-info', class: '') %>Court<br><span class="small">Info</span></button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Other<br><span class="small">Options</span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">View Other Citations</a></li>
+          </ul>
+        </div>
+      </section>
+      <h3>Violation Information</h3>
+      <div class="list-group">
+        <div class="list-group-item">
+          <h4 class="list-group-item-heading"><%#= violation_description %>violation_description</h4>
+          <span class="help-block"><%#= violation_number %>violation_number</span>
+          <ul class="list-unstyled">
+            <li><strong>Court Location</strong>: <%#= court_location %>court_location</li>
+            <li><strong>Court Date</strong>: <%#= court_date %>court_date</li>
+            <li><strong>Total Court Costs</strong>: <%#= total_cost %>total_cost</li>
+            <h5>Defendant Info:</h5>
+            <li><strong>DOB</strong>: <%#= date_of_birth %>date_of_birth</li>
+            <li><%#= defendant_address %>defendant_address</li>
+            <li><%#= defendant_city %>defendant_city, <%#= defendant_state %>defendant_state</li>
+            <li><strong>License</strong>: <%#= drivers_license_number %>drivers_license_number</li>
+          </ul>
+        </div> <!-- .list-group-item -->
+      </div> <!-- .list-group -->
     </div>
-  </section>
-  <h3>Violation Information</h3>
-    <div class="list-group">
-      <div class="list-group-item">
-        <h4 class="list-group-item-heading"><%#= violation_description %>violation_description</h4>
-        <span class="help-block"><%#= violation_number %>violation_number</span>
-        <ul class="list-unstyled">
-          <li><strong>Court Location</strong>: <%#= court_location %>court_location</li>
-          <li><strong>Court Date</strong>: <%#= court_date %>court_date</li>
-          <li><strong>Total Court Costs</strong>: <%#= total_cost %>total_cost</li>
-          <h5>Defendant Info:</h5>
-          <li><strong>DOB</strong>: <%#= date_of_birth %>date_of_birth</li>
-          <li><%#= defendant_address %>defendant_address</li>
-          <li><%#= defendant_city %>defendant_city, <%#= defendant_state %>defendant_state</li>
-          <li><strong>License</strong>: <%#= drivers_license_number %>drivers_license_number</li>
-        </ul>
-      </div> <!-- .list-group-item -->
-    </div> <!-- .list-group -->
+  </div>
 </div>

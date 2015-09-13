@@ -1,26 +1,34 @@
 <%= render "shared/header" %>
 <div class="container">
-	<h2 class="gray">Great, thanks.</h2><h3>We've found <span class="green"><%= @citations.count %> citations</span>:</h3>
-	<section class="citations-group">
-		<div class="list-group">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h2 class="gray">Great, thanks.</h2>
+			<h3>We've found 
+				<span class="green">
+					<%= @citations.count %> citation<% if @citations.count > 1 %>s<% end %>
+				</span>:
+			</h3>
+			<section class="citations-group">
+				<div class="list-group">
 
-			<% @citations.each do |c| %>
-				<%= link_to citation_path(c) do %>
-					<h4 class="list-group-item-heading">Citation number: <%= c.citation_number %></h4>
-					<span class="help-block">Citation date: <%= c.formatted_date %></span>
-					<% unless c.violations.count == 0 %>
-						<h5>Violations:</h5>
-						<ul>
-							<% c.violations.each do |v| %>
-								<li><%= v.violation_description %></li>
+					<% @citations.each do |c| %>
+						<%= link_to citation_path(c), { :class=>"list-group-item" } do %>
+							<h4 class="list-group-item-heading">Citation number: <%= c.citation_number %></h4>
+							<span class="help-block">Citation date: <%= c.formatted_date %></span>
+							<% unless c.violations.count == 0 %>
+								<h5>Violations:</h5>
+								<ul>
+									<% c.violations.each do |v| %>
+										<li><%= v.violation_description %></li>
+									<% end %>
+								</ul>
 							<% end %>
-						</ul>
+							<div class="btn btn-primary pull-right">More Info</div>
+							<div class="clearfix"></div>
+						<% end %>
 					<% end %>
-					<div class="btn btn-primary pull-right">More Info</div>
-					<div class="clearfix"></div>
-				<% end %>
-			<% end %>
-
+				</div>
+			</section> <!-- .citations-group -->
 		</div>
-	</section>
+	</div>
 </div>

@@ -153,7 +153,11 @@
 	.court-info ol {
 		padding-left: 20px;
 	}
-
+	.citations-group {
+		a:hover {
+			text-decoration: none;
+		}
+	}
 	/*------------------------------------------------------------------
 	[4.1 Home / #.controller-home]
 	*/

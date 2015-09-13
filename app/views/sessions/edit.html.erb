@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h2 class="gray">For an extra security measure, please confirm your <br class="hidden-xs"> <span class="green-dark">Date of Birth</span>.</h2>
-      <section class="form-section">
+      <section class="form-section clearfix">
         <%= form_for @session, :html => {:class => 'form'} do |f| %>
           <% if @session.errors.any? %>
             <div id="error_explanation">
@@ -34,6 +34,7 @@
           </div>
         <% end %>
       </section>
+      <a class="start-over" href="/sessions/new">&lt; Start Over</a>
     </div>
   </div>
 </div>
