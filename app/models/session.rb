@@ -12,6 +12,7 @@
 #
 
 class Session < ActiveRecord::Base
+  SMS_SESSION_TIMEOUT_SECONDS= 20
   has_many :reminders
 
   create_with state: :begun

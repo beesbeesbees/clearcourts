@@ -2,7 +2,7 @@ class GarbageCollectorWorker < Object
   include Sidekiq::Worker
 
   def perform
-    GarbageCollector.new.take_out_trash
+    GarbageCollector.take_out_trash
     respawn if respawn_needed?
   end
 
