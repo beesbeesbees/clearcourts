@@ -13,6 +13,11 @@
 /*------------------------------------------------------------------
 [1. Overrides]
 */
+	body {
+		@media(min-width: $screen-md) {
+			padding-bottom: 200px; // because fixed bottom footer
+		}
+	}
 	a {
 		color: $brand-secondary !important;
 	}
@@ -35,6 +40,8 @@
 		padding-bottom: 45px;
 	}
 	.dropdown-menu {
+		right: 0;
+		left: inherit;
 		@media (max-width: $screen-sm) {
 			width: 100%;
 		}
@@ -44,7 +51,18 @@
 	}
 	.btn-lg {
 		font-size: 30px !important;
-		padding: 30px 0 !important;
+		padding: 30px 10px !important;
+	}
+	.caret {
+		@media(min-width: $screen-md) {
+			display: inline !important;
+			position: absolute;
+			right: 15px;
+	    border-top: 10px dashed !important;
+	    border-top: 10px solid \9 !important;
+	    border-right: 10px solid transparent !important;
+	    border-left: 10px solid transparent !important;
+    }
 	}
 
 /*------------------------------------------------------------------
@@ -75,8 +93,12 @@
 /*------------------------------------------------------------------
 [4. Content / #content]
 */
-	.icons {
+	#icons {
 		margin-top: 30px;
+		h2 {
+			font-weight: 700;
+			font-size: 36px;
+		}
 	}
 	.single-icon {
 		text-align: center;
@@ -86,6 +108,7 @@
 		border-bottom: 1px solid $gray-lighter;
 		&.warrant {
 			color: #a94442;
+			font-size: 18px;
 		}
 	}
 	.list-group-item {
@@ -166,6 +189,13 @@
 		padding: 30px 0;
 		background-color: $gray-dark;
 		color: white;
+		@media(min-width: $screen-md) {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1030;
+		}
 		a {
 			color: white !important;
 			text-decoration: underline;
