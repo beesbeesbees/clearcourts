@@ -1,9 +1,9 @@
 <%= render "shared/header" %>
 <div class="container">
   <h2 class="gray">Here is the info for <br class="visible-xs">Citation <span class="green"><%= @citation.citation_number %></span></h2>
-  <%#= if a warrant:  %>
-  <span class="help-block warrant">A warrant was issued on MM/DD/YYYY</span>
-  <%#= endif %>
+  <% if @citation.has_warrant? %>
+    <span class="help-block warrant">A warrant was issued on <%= @citation.formatted_date(@citation.warrant_date) %></span>
+  <% end %>
   <section class="payment-options">
     <h3>How to Resolve</h3>
     <span class="help-block">Click an option below:</span>
