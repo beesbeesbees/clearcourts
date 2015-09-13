@@ -26,14 +26,14 @@
         <h4 class="list-group-item-heading"><%#= violation_description %>violation_description</h4>
         <span class="help-block"><%#= violation_number %>violation_number</span>
         <ul class="list-unstyled">
-          <li><strong>Court Location</strong>: <%#= court_location %>court_location</li>
-          <li><strong>Court Date</strong>: <%#= court_date %>court_date</li>
+          <li><strong>Court Location</strong>: <%= @citation.court.court_location %></li>
+          <li><strong>Court Date</strong>: <%= @citation.formatted_date(@citation.court_date) %></li>
           <li><strong>Total Court Costs</strong>: <%#= total_cost %>total_cost</li>
           <h5>Defendant Info:</h5>
-          <li><strong>DOB</strong>: <%#= date_of_birth %>date_of_birth</li>
-          <li><%#= defendant_address %>defendant_address</li>
-          <li><%#= defendant_city %>defendant_city, <%#= defendant_state %>defendant_state</li>
-          <li><strong>License</strong>: <%#= drivers_license_number %>drivers_license_number</li>
+          <li><strong>DOB</strong>: <%= @citation.formatted_date(@citation.date_of_birth) %></li>
+          <li><%= @citation.defendant_address %></li>
+          <li><%= "#{@citation.defendant_city}, #{@citation.defendant_state}" %></li>
+          <li><strong>License</strong>: <%= @citation.drivers_license_number %></li>
         </ul>
       </div> <!-- .list-group-item -->
     </div> <!-- .list-group -->

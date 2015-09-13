@@ -7,7 +7,7 @@
 			<% @citations.each do |c| %>
 				<%= link_to citation_path(c) do %>
 					<h4 class="list-group-item-heading">Citation number: <%= c.citation_number %></h4>
-					<span class="help-block">Citation date: <%= c.formatted_date %></span>
+					<span class="help-block">Citation date: <%= c.formatted_date(c.citation_date) %></span>
 					<% unless c.violations.count == 0 %>
 						<h5>Violations:</h5>
 						<ul>
