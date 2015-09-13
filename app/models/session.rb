@@ -17,7 +17,8 @@
 #
 
 class Session < ActiveRecord::Base
-  SMS_SESSION_TIMEOUT_SECONDS= 120
+  SMS_SESSION_TIMEOUT_SECONDS= 180
+  WEB_SESSION_TIMEOUT_SECONDS= 360
 
   has_many :reminders
 

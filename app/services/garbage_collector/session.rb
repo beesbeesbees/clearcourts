@@ -7,6 +7,7 @@ class GarbageCollector::Session < Object
 private
 
   def clean_web_sessions
+    # WEB_SESSION_TIMEOUT_SECONDS
     true
   end
 
