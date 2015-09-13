@@ -8,6 +8,7 @@ class TwilioController < ApplicationController
       @_session.update!(state: 'greeting_1'.freeze)
     end
     render_action_to_s(SmsController, @_session.next_action, twilio_params).to_s.split('<br />').each do |text| #render the view into SMS bodies
+      Rails.logger.debug %Q{sending text "#{text}"}
       SmsWorker.perform_async(
         twilio_params[:From],  #send the text to the number we received this one from
         text,
