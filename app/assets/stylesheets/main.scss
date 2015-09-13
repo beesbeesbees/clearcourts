@@ -13,9 +13,10 @@
 /*------------------------------------------------------------------
 [1. Overrides]
 */
-	body {
+	body, html {
+		height: 100%;
 		@media(min-width: $screen-md) {
-			padding-bottom: 200px; // because fixed bottom footer
+			//padding-bottom: 200px; // because fixed bottom footer
 		}
 	}
 	a {
@@ -102,7 +103,9 @@
 /*------------------------------------------------------------------
 [4. Content / #content]
 */
-
+	#content {
+		padding-bottom: 125px;
+	}
 	.masthead {
 		background-color: $brand-primary;
 		padding: 45px 0 15px;
@@ -222,12 +225,13 @@
 		padding: 15px 0 0;
 		background-color: $gray-dark;
 		color: white;
+		margin-top: -125px;
 		@media(min-width: $screen-md) {
-			position: fixed;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			z-index: 1030;
+			// position: fixed;
+			// right: 0;
+			// bottom: 0;
+			// left: 0;
+			// z-index: 1030;
 		}
 		a {
 			color: white !important;
