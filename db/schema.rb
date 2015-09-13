@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20150913020512) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.datetime "expiration"
     t.string   "phone_number",   limit: 255
     t.string   "email",          limit: 255
     t.string   "contact_method", limit: 255
