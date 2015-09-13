@@ -17,14 +17,14 @@
 
       <div class="form-group">
         <%= f.label :first_name %>
-        <%= f.text_field :first_name, class: "form-control" %>
+        <%= f.text_field :first_name, :required => true, class: "form-control input-lg" %>
       </div>
       <div class="form-group">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, class: "form-control" %>
+        <%= f.label :last_name, :required => true %>
+        <%= f.text_field :last_name, :required => true, class: "form-control input-lg" %>
       </div>
       <div class="actions">
-        <%= f.submit "Next", class: "btn btn-primary btn-block" %>
+        <%= f.submit "Next", class: "btn btn-primary btn-block btn-lg" %>
       </div>
     <% end %>
   </section>
