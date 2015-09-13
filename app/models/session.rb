@@ -14,6 +14,7 @@
 #  birth_day      :integer
 #  birth_month    :integer
 #  birth_year     :integer
+#  phone_type     :string(255)
 #
 
 class Session < ActiveRecord::Base

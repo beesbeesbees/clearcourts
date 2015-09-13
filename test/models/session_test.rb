@@ -14,6 +14,7 @@
 #  birth_day      :integer
 #  birth_month    :integer
 #  birth_year     :integer
+#  phone_type     :string(255)
 #
 
 require 'test_helper'

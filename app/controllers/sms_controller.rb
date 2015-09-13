@@ -29,6 +29,7 @@ class SmsController < ApplicationController
       next_state 'greeting_5'.freeze
       render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session}
     else
+      @session.update(phone_type: 'OTHER')
       next_state 'greeting_5'.freeze
       render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session}
     end
