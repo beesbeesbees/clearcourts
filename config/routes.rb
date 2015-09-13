@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :courts
   end
 
+  resources :sessions
+
   authenticated :user, ->(user) {user.admin?} do
     root to: "admin/home#index", as: :admin_root
     require 'sidekiq/web'
