@@ -5,10 +5,6 @@ class CitationsController < ApplicationController
     @citations = Citation.all
   end
 
-  def show
-  end
-
-
   private
     def set_citation
       @citation = Citation.find(params[:id])

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150913141527) do
+ActiveRecord::Schema.define(version: 20150913143247) do
 
   create_table "citations", force: :cascade do |t|
     t.integer  "citation_number",        limit: 4
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20150913141527) do
     t.integer  "invited_by_id",          limit: 4
     t.string   "invited_by_type",        limit: 255
     t.integer  "invitations_count",      limit: 4,   default: 0
+    t.string   "token",                  limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, length: {"email"=>10}, using: :btree
