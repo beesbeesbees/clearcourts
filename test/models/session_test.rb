@@ -3,7 +3,6 @@
 # Table name: sessions
 #
 #  id             :integer          not null, primary key
-#  expiration     :datetime
 #  phone_number   :string(255)
 #  email          :string(255)
 #  contact_method :string(255)
