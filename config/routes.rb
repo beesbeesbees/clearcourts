@@ -26,9 +26,9 @@ Rails.application.routes.draw do
 
   authenticated :user, ->(user) {user.admin?} do
     root to: "admin/home#index", as: :admin_root
-    require 'sidekiq/web'
-    mount Sidekiq::Web => '/admin/sidekiq'
   end
+    require 'sidekiq/web'
+    mount Sidekiq::Web => '/admin/the_lou/sidekiq'
 
   authenticated :user do
     root to: "home#landing", as: :user_root
