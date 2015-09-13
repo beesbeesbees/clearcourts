@@ -4,7 +4,7 @@ class TwilioController < ApplicationController
 
   def sms
     @_session= Session.where(phone_number: params[:From]).first_or_initialize
-    if twilio_params[:Body].upcase.ltrim.rtrim== 'START'.freeze
+    if twilio_params[:Body].upcase== 'START'.freeze
       @_session.update!(state: 'greeting_1'.freeze)
     end
     SmsWorker.perform_async(
