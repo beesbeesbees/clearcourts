@@ -16,10 +16,10 @@ class Session < ActiveRecord::Base
 
   has_many :reminders
 
-  create_with state: 'begun'.freeze
+  create_with state: 'greeting_1'.freeze
 
   validates :state, inclusion: { in: %w[
-    begun foo bar
+    greeting_1 greeting_3 greeting_4 greeting_5 greeting_6 greeting_7
   ] }
 
   def web?
