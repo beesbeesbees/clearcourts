@@ -26,8 +26,24 @@ class Citation < ActiveRecord::Base
   accepts_nested_attributes_for :violations
 
 
-  def formatted_date
-    citation_date.strftime("%B %e, %Y")
+  def formatted_date(date)
+    if date
+      date.strftime("%B %e, %Y")
+    else
+      "NONE LISTED"
+    end
+  end
+
+  def has_warrant?
+    if violations.where(warrant_status: true).count == 0
+      false
+    else
+      true
+    end
+  end
+
+  def warrant_date
+    violations.where(warrant_status: true).order(:status_date).first.status_date
   end
 
   def self.import(file)

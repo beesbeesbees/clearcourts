@@ -52,6 +52,9 @@
 	.btn-lg {
 		font-size: 30px !important;
 		padding: 30px 10px !important;
+		@media(min-width: $screen-md) {
+			padding: 15px !important;
+		}
 	}
 	.caret {
 		@media(min-width: $screen-md) {
@@ -63,6 +66,9 @@
 	    border-right: 10px solid transparent !important;
 	    border-left: 10px solid transparent !important;
     }
+	}
+	label {
+		font-size: 18px;
 	}
 
 /*------------------------------------------------------------------
@@ -147,7 +153,11 @@
 	.court-info ol {
 		padding-left: 20px;
 	}
-
+	.citations-group {
+		a:hover {
+			text-decoration: none;
+		}
+	}
 	/*------------------------------------------------------------------
 	[4.1 Home / #.controller-home]
 	*/
@@ -178,8 +188,11 @@
 			}
 			.container {
 				padding: 45px 10px;
+				@media(min-width: $screen-md) {
+					padding: 60px 30px;
+				}
 			}
-			h1, h2, h3, h4, h5, p {
+			h1, h2, h3, h4, h5, p, span {
 				position: relative;
 				z-index: 2;
 			}
