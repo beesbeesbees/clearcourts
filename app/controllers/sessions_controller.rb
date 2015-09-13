@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
+        format.html { redirect_to edit_session_path(@session), notice: 'Session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }
@@ -55,6 +55,6 @@ class SessionsController < ApplicationController
     end
 
     def session_params
-      params.require(:session).permit(:first_name, :last_name, :phone_number, :email, :contact_method)
+      params.require(:session).permit(:first_name, :last_name, :birth_month, :birth_day, :birth_year, :phone_number, :email, :contact_method)
     end
 end

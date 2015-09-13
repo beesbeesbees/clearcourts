@@ -12,8 +12,10 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Users</a></li>
-        <li><a href="#">Data</a></li>
+        <% if current_user.admin? %>
+        <li class="active"><a href="/admin/users">Users</a></li>
+        <% end %>
+        <li><a href="/admin/citations">Data</a></li>
         <li><a href="#">Courts</a></li>
         <li><a href="#">Invite</a></li>
       </ul>
