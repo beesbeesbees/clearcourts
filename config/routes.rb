@@ -24,6 +24,20 @@ Rails.application.routes.draw do
     resources :courts
   end
 
+  namespace :api do
+    resources :courts do
+      get :citations
+    end
+
+    resources :citations do
+      resources :violations
+    end
+
+    resources :violations
+
+    get :index
+  end
+
   resources :sessions
 
   authenticated :user, ->(user) {user.admin? || user.court_user?} do
