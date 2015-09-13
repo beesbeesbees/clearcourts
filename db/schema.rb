@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150913022955) do
 
-
   create_table "citations", force: :cascade do |t|
     t.integer  "citation_number",        limit: 4
     t.datetime "citation_date"
