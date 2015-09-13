@@ -12,12 +12,12 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <% if current_user.admin? %>
+        <% if user_signed_in? && current_user.admin? %>
           <li class="active"><a href="/admin/users">Users</a></li>
         <% end %>
         <li><a href="/admin/citations">Data</a></li>
         <li><a href="#">Courts</a></li>
-        <% if current_user.admin? %>
+        <% if user_signed_in? && current_user.admin? %>
           <li><a href="/users/invitation/new">Invite</a></li>
         <% end %>
         <li><%= link_to "API", api_docs_path %></li>

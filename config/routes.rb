@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get :dob, to: "home#dob"
   get :citations, to: "home#citations"
   get :single_citation, to: "home#single_citation"
-  get :pay, to: "home#pay"
-  get :court, to: "home#court"
+  get :volunteer, to: "home#volunteer"
 
   get :about, to: "home#about"
   get :api, to: "home#api"
@@ -56,7 +55,8 @@ Rails.application.routes.draw do
       get :pay_confirmed
     end
   end
-  resources :courts, only: [:show, :index]
+
+  resources :courts
 
   authenticated :user, ->(user) {user.admin? || user.court_user?} do
     root to: "admin/citations#index", as: :admin_root

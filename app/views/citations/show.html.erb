@@ -12,16 +12,15 @@
       <%= link_to pay_citation_path(@citation), class: "btn btn-default" do %>
         <%= icon('usd', '', id: 'pay-online', class: '') %>Pay<br><span class="small">Options</span>
       <% end %>
-      <%= link_to court_path(@citation.court), class: "btn btn-default" do %>
+      <%= link_to court_path(@court), class: "btn btn-default" do %>
         <%= icon('balancescale', '', id: 'court-info', class: '') %>Court<br><span class="small">Info</span>
       <% end %>
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Other<br><span class="small">Options</span>
+        If you<br><span class="small">can't pay</span>
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">Volunteer</a></li>
-        <li><a href="#">View Other Citations</a></li>
+        <li><%= link_to "Volunteer", volunteer_path%></a></li>
       </ul>
     </div>
   </section>

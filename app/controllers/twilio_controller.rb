@@ -7,10 +7,13 @@ class TwilioController < ApplicationController
     if twilio_params[:Body].upcase== 'START'.freeze
       @_session.update!(state: 'greeting_1'.freeze)
     end
-    SmsWorker.perform_async(
-      twilio_params[:From],  #send the text to the number we received this one from
-      render_action_to_s(SmsController, @_session.next_action, twilio_params).to_s #render the view into the SMS body
-    )
+    render_action_to_s(SmsController, @_session.next_action, twilio_params).to_s.split('<br />').each do |text| #render the view into SMS bodies
+      Rails.logger.debug %Q{sending text "#{text}"}
+      SmsWorker.perform_async(
+        twilio_params[:From],  #send the text to the number we received this one from
+        text,
+      )
+    end
     render nothing: true, status: 200, :content_type => 'application/json'
   end
 
