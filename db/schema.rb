@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150912203732) do
+ActiveRecord::Schema.define(version: 20150913012512) do
 
   create_table "citations", force: :cascade do |t|
     t.integer  "citation_number",        limit: 4
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20150912203732) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.datetime "expiration"
     t.string   "phone_number",   limit: 255
     t.string   "email",          limit: 255
     t.string   "contact_method", limit: 255
