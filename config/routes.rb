@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :violations
 
     get :index
+    get :regenerate_token
   end
 
   resources :sessions
