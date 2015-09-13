@@ -1,1 +1,5 @@
-your text "<%= body %>" was received
+<%- if done %>
+Thanks <%= session.first_name %>. Do you have an 'iPhone', 'Android', or 'other' phone?
+<%- else -%>
+Please enter your first name.
+<%- end -%>

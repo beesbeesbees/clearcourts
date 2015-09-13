@@ -46,6 +46,15 @@ class Citation < ActiveRecord::Base
     violations.where(warrant_status: true).order(:status_date).first.status_date
   end
 
+  def total_cost
+    tc = 0
+    violations.each do |v|
+      vtc = v.court_cost + v.fine_amount
+      tc += vtc
+    end
+    tc
+  end
+
   def self.import(file)
     count = 0
 

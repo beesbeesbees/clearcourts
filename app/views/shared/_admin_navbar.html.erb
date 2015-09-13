@@ -20,6 +20,7 @@
         <% if current_user.admin? %>
           <li><a href="/users/invitation/new">Invite</a></li>
         <% end %>
+        <li><%= link_to "API", api_docs_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
