@@ -1,0 +1,78 @@
+<%= render "shared/header" %>
+<div class="container">
+  <h2 class="gray">Court Info, <span class="green">Citizen</span>.</h2>
+  <h4>As a reminder, your citation number is <%#= citation_number %> <span class="green">citation_number</span></h4>
+  <h4 class="text-danger">Your total fees are <strong>$<%#= total_fees %>total_fees.00</strong> and payment is due by <%#= court_date %>court_date</h4>
+  <section class="court-info">
+    <div class="row">
+      <div class="col-sm-8">
+        <h3>Municipal Court of <span class="capitalize"><%#= court_location %>court_location</span></h3>
+        <h4>
+          <address>
+            <%#= court_address %>court_address
+          </address>
+        </h4>
+        <h4>Phone: <a href="tel:<%#= court_telephone %>">court_telephone</a></h4>
+
+        <h3>Helpful Info</h3>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#court-directions" aria-expanded="true" aria-controls="court-directions">
+              <div class="panel-heading" role="tab" id="directions-heading">
+                <h4 class="panel-title">
+                    Directions
+                </h4>
+              </div>
+            </a>
+            <div id="court-directions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="directions-heading">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#dress-code" aria-expanded="false" aria-controls="dress-code">
+              <div class="panel-heading" role="tab" id="dress-code-heading">
+                <h4 class="panel-title">
+                    Dress Code
+                </h4>
+              </div>
+            </a>
+            <div id="dress-code" class="panel-collapse collapse" role="tabpanel" aria-labelledby="dress-code-heading">
+              <div class="panel-body">
+                <ol>
+                  <li>Dress conservatively and, when appropriate, wear good quality clothing. If you own a suit, wear it, if not your Sunday best is always a safe bet.</li>
+                  <li>Avoid wearing loud colors or all black.</li>
+                  <li>Do not wear tinted or dark colored glasses in the courtroom. Judges or bailiffs will ask you to remove them even if you have them on the top of your head.</li>
+                  <li>Jerseys or other sports apparel should also be avoided.</li>
+                  <li>Never wear any shirts with vulgar or profane text on it. The courtroom is not the place to make those statements.</li>
+                  <li>Make an effort to conceal any visible tattoos.</li>
+                  <li>Take the loose change out of your pockets. The temptation to fiddle around with it while you are in front of the judge may difficult to overcome.</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#your-rights" aria-expanded="false" aria-controls="your-rights">
+              <div class="panel-heading" role="tab" id="rights-heading">
+                <h4 class="panel-title">
+                    Your Rights
+                </h4>
+              </div>
+            </a>
+            <div id="your-rights" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rights-heading">
+              <div class="panel-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
+          </div>
+        </div> <!-- .panel-group -->
+      </div>
+      <div class="sidebar col-sm-4">
+        <h3>Pay Online</h3>
+        <p>A mote of dust suspended in a sunbeam cosmos radio telescope preserve and cherish that pale blue dot.</p>
+        <a href="#<%#= stripe_url %>" class="btn btn-primary btn-lg">Click to Pay Now</a>
+      </div> <!-- .sidebar -->
+    </div>
+  </section> <!-- .court-info -->
+</div> <!-- .container -->

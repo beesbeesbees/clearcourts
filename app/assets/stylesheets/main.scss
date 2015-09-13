@@ -1,7 +1,203 @@
-body {
-  background-color: #27364F;
-  h1 {
-    color: #4268A5;
-  }
-}
+/*------------------------------------------------------------------
+[Table of contents]
 
+1. Overrides
+2. Header / #header
+3. Navigation / .navbar
+4. Content / #content
+	4.1 Home / .controller-home
+5. Sidebar / #sidebar
+6. Footer / .footer
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[1. Overrides]
+*/
+	body {
+		@media(min-width: $screen-md) {
+			padding-bottom: 200px; // because fixed bottom footer
+		}
+	}
+	a {
+		color: $brand-secondary !important;
+	}
+	.btn {
+		font-family: $font-family-sans-serif;
+		text-transform: uppercase;
+	}
+	.btn-primary {
+		color: white !important;
+	    background-color: $btn-primary-bg !important;
+	    border-color: $btn-primary-border !important;
+	    &:hover {
+	    	background-color: $brand-secondary !important;
+	    }
+	}
+	.nav > li > a {
+		padding: 10px 13px !important;
+	}
+	.container {
+		padding-bottom: 15px;
+	}
+	.dropdown-menu {
+		right: 0;
+		left: inherit;
+		@media (max-width: $screen-sm) {
+			width: 100%;
+		}
+		> li > a {
+			text-align: center;
+		}
+	}
+	.btn-lg {
+		font-size: 30px !important;
+		padding: 30px 10px !important;
+	}
+	.caret {
+		@media(min-width: $screen-md) {
+			display: inline !important;
+			position: absolute;
+			right: 15px;
+	    border-top: 10px dashed !important;
+	    border-top: 10px solid \9 !important;
+	    border-right: 10px solid transparent !important;
+	    border-left: 10px solid transparent !important;
+    }
+	}
+
+/*------------------------------------------------------------------
+[2. Header / #header]
+*/
+	.navbar-header {
+		height: 60px;
+	}
+	.navbar-brand {
+		font-family: $font-family-sans-serif;
+		font-size: 30px !important;
+	}
+	.navbar-default {
+		background-color: transparent !important;
+    border-color: #e7e7e7;
+	}	
+
+/*------------------------------------------------------------------
+[3. Navigation / .navbar ]
+*/
+	.navbar-default .navbar-nav > li > a {
+		color: $gray !important;
+		text-align: center;
+		font-size: 18px;
+		padding: 20px !important;
+	}
+
+/*------------------------------------------------------------------
+[4. Content / #content]
+*/
+	#icons {
+		margin-top: 30px;
+		h2 {
+			font-weight: 700;
+			font-size: 36px;
+		}
+	}
+	.single-icon {
+		text-align: center;
+		margin: 20px auto 40px;
+	}
+	.help-block {
+		border-bottom: 1px solid $gray-lighter;
+		&.warrant {
+			color: #a94442;
+			font-size: 18px;
+		}
+	}
+	.list-group-item {
+		h5 {
+			margin-bottom: 5px;	
+		}
+		.btn {
+			margin-bottom: 5px;
+		}
+	}
+	.payment-options {
+		.btn-group {
+			width: 100%;
+		}
+		.btn-group > .btn, .btn-group-vertical > .btn {
+			width: 33.3333333333%;
+		}
+	}
+	.court-info ol {
+		padding-left: 20px;
+	}
+
+	/*------------------------------------------------------------------
+	[4.1 Home / #.controller-home]
+	*/
+
+		.controller-home .navbar {
+			margin-bottom: 0;
+		}
+
+	/*------------------------------------------------------------------
+	[4.2 Banner / #banner]
+	*/
+
+		#banner {
+			background-image: image-url("banner.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			position: relative;
+			z-index: 0;
+			.overlay {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				display: block;
+				background-color: white;
+				opacity: 0.8;
+				z-index: 1;
+			}
+			.container {
+				padding: 45px 10px;
+			}
+			h1, h2, h3, h4, h5 {
+				position: relative;
+				z-index: 2;
+			}
+			h4 {
+				border-top: 1px solid white;
+				padding: 15px 0;
+				font-family: $font-family-serif;
+			}
+			.btn {
+				font-size: 30px;
+				position: relative;
+				z-index: 2;
+			}
+		} // #banner 
+
+/*------------------------------------------------------------------
+[5. Sidebar / .sidebar]
+*/
+
+/*------------------------------------------------------------------
+[6. Footer / .footer]
+*/
+	.footer {
+		padding: 15px 0 0;
+		background-color: $gray-dark;
+		color: white;
+		@media(min-width: $screen-md) {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1030;
+		}
+		a {
+			color: white !important;
+			text-decoration: underline;
+		}
+	}

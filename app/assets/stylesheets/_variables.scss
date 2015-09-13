@@ -9,30 +9,18 @@
 
 $gray-base:              #000;
 $gray-darker:            lighten($gray-base, 13.5%); // #222
-$gray-dark:              lighten($gray-base, 20%);   // #333
+$gray-dark:              #494949;   // #494949
 $gray:                   lighten($gray-base, 33.5%); // #555
 $gray-light:             lighten($gray-base, 70%);   // #999
 $gray-lighter:           lighten($gray-base, 93.5%); // #eee
 
-$brand-primary:         #4582EC;
+$brand-primary:         #37a000;
+$brand-secondary:		#008329;
 $brand-success:         #3FAD46;
 $brand-info:            #5bc0de;
 $brand-warning:         #f0ad4e;
 $brand-danger:          #d9534f;
 
-/*********************
-BOOTSTRAP OVERRIDES
-*********************/
-$brand-primary: rgba(1, 107, 127, 1.0);
-$brand-primary-half: rgba(1, 107, 127, 0.5);
-$brand-info: #3b8ea5;
-/*$brand-warning: #f49e4c;*/
-$brand-warning: #8F959A;
-$brand-warning-half: rgba(143, 149, 154, 0.5);
-$brand-danger: #ab3428;
-$brand-danger-half: rgba(171, 52, 40, 0.5);
-/*$brand-success: #4cad55;*/
-$brand-success: #3B3C3E;
 $body-text: #5a5a5a;
 $white: #fff;
 
@@ -54,6 +42,29 @@ $link-hover-color:      darken($link-color, 20%);
 //** Link hover decoration.
 $link-hover-decoration: underline;
 
+// Helper classes
+
+
+.white {
+	color: white;
+}
+.gray-light {
+	color: $gray-light;
+}
+.green {
+	color: $brand-primary;
+}
+.green-dark {
+	color: $brand-secondary;
+}
+.capitalize {
+	text-transform: capitalize;
+}
+.underline {
+	border-bottom: 1px solid $gray-lighter;
+	padding-bottom: 5px;
+}
+
 
 //== Typography
 //
@@ -61,8 +72,9 @@ $link-hover-decoration: underline;
 
 //Cabin Font Import
 
-$font-family-headings:   "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-headings:   "proxima-nova", Helvetica, Arial, sans-serif;
+$font-family-sans-serif: "proxima-nova", Helvetica, Arial, sans-serif;
+$font-family-serif:		 "freight-text-pro", serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 $font-family-base:        $font-family-sans-serif;
@@ -190,7 +202,6 @@ $btn-danger-bg:                  $brand-danger;
 $btn-danger-border:              $btn-danger-bg;
 
 $btn-link-disabled-color:        $gray-light;
-
 
 //== Forms
 //
