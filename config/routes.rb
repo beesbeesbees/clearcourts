@@ -27,14 +27,13 @@ Rails.application.routes.draw do
   authenticated :user, ->(user) {user.admin?} do
     root to: "admin/home#index", as: :admin_root
   end
-    require 'sidekiq/web'
-    mount Sidekiq::Web => '/admin/the_lou/sidekiq'
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/admin/sidekiq'
 
   authenticated :user do
     root to: "home#landing", as: :user_root
   end
   root 'home#index' #non-users
 
-  get :foo, to: 'sms#foo'
 
 end
