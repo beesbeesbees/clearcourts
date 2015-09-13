@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-offset-1">
+      <h3>Citation</h3>
+        <%= form_for [:admin, @citation] do |f| %>
+        <div class="light well">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.label :citation_number %>
+                <%= f.text_field :citation_number, class: "form-control" %>
+              </div>
+              <div class="col-md-6">
+                <%= f.label :citation_date%>
+                <%= f.date_field :citation_date, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+            <hr />
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.label :first_name%>
+                <%= f.text_field :first_name, class: "form-control" %>
+              </div>
+              <div class="col-md-6">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.label :drivers_license_number %>
+                <%= f.text_field :drivers_license_number, class: "form-control" %>
+              </div>
+              <div class="col-md-6">
+                <%= f.label :date_of_birth%>
+                <%= f.date_field :date_of_birth, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-4">
+                <%= f.label :defendant_address %>
+                <%= f.text_field :defendant_address, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label :defendant_city %>
+                <%= f.text_field :defendant_city, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label :defendant_state %>
+                <%= f.text_field :defendant_state, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <h3>Violations</h3>
+      <%= f.fields_for :violations, @citation.violations do |vf| %>
+      <%= vf.hidden_field :id %>
+      <div class="light well">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <%= vf.label :violation_number%>
+              <%= vf.text_field :violation_number, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <%= vf.label :violation_description %>
+              <%= vf.text_area :violation_description, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <%= vf.label :warrant_number %>
+              <%= vf.text_field :warrant_number, class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= vf.label :warrant_status, "Active Warrant?" %>
+              <%= vf.check_box :warrant_status %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <%= vf.label :status %>
+              <%= vf.text_area :status, class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= vf.label :status_date %>
+              <%= vf.date_field :status_date, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <%= vf.label :fine_amount, "Fine Amount (in cents)"%>
+              <%= vf.text_field :fine_amount, class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= vf.label :court_cost, "Court Cost (in cents)"%>
+              <%= vf.text_field :court_cost, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit class: "btn btn-success" %>
+        <%= link_to "Back", admin_citations_path, class: "btn btn-danger pull-right" %>
+      </div>
+      <% end %>
+      <br />
+      <br />
+    </div>
+  </div>
+</div>
