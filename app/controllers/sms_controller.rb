@@ -1,14 +1,19 @@
 class SmsController < ApplicationController
   skip_before_filter :verify_authenticity_token #no web form token
-  before_filter :set_session
 
   def greeting_1
-    @session.update!(stage: 'greeting_3'.freeze) #next stage
+Rails.logger.debug "params== #{params}"
+    @session= Session.where(phone_number: params[:From]).first_or_initialize
+    @session.update!(
+      phone_number: params['From'.freeze],
+      state: 'greeting_3'.freeze, #next stage
+    )
     render partial: 'greeting_1'.freeze
   end
 
   def greeting_3
-    @session.update!(stage: 'greeting_1'.freeze) #next stage
+    @session= Session.where(phone_number: params[:From]).first
+    @session.update!(state: 'greeting_1'.freeze) #next stage
     render partial: 'greeting_3'.freeze
   end
 
@@ -26,11 +31,5 @@ class SmsController < ApplicationController
 
   def greeting_7
 
-  end
-
-private
-
-  def set_session
-    @session= Session.where(phone_number: params[:From]).first_or_initialize
   end
 end

@@ -25,9 +25,11 @@ class Session < ActiveRecord::Base
 
   validates :state, inclusion: {in: %w[
     greeting_1 greeting_3 greeting_4 greeting_5 greeting_6 greeting_7
-  ]}, unless: 'phone_number.!'.freeze
+  ]}, unless: 'web?'.freeze
 
-  validates :state, inclusion: {in: [nil]}, if: 'phone_number.!.!'.freeze
+  validates :state, inclusion: {in: [nil]}, if: 'web?'.freeze
+
+  validates :phone_number, uniqueness: true, unless: 'web?'.freeze
 
   def web?
     phone_number.!
