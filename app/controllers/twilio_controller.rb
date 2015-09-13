@@ -41,8 +41,8 @@ private
       end
     end
     instance= controller.new
-    instance.request= @_request.dup
-    instance.response= @_response.dup
+    instance.request= @_request
+    instance.response= @_response
     instance.params= params.dup
     #instance.process_action(action)
     instance.send(action)
