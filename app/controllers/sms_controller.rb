@@ -55,14 +55,38 @@ class SmsController < ApplicationController
 
   def greeting_6
     get_session
-    next_state 'greeting_7'.freeze
-    render partial: 'greeting_6'.freeze, locals: {body: @body, session: @session, done: true}
+    if body.to_s=~ /^[0-9][0-9][0-9][0-9]$/
+      @session.update(birth_year: body.to_s.to_i)
+      next_state 'greeting_7'.freeze
+      render partial: 'greeting_6'.freeze, locals: {body: @body, session: @session, done: true}
+    else
+      next_state 'greeting_6'.freeze
+      render partial: 'greeting_6'.freeze, locals: {body: @body, session: @session, done: false}
+    end
   end
 
   def greeting_7
     get_session
-    next_state 'greeting_1'.freeze
-    render partial: 'greeting_7'.freeze, locals: {body: @body, session: @session, done: true}
+    if body.to_s=~ /^[0-9][0-9]$/
+      @session.update(birth_month: body.to_s.to_i)
+      next_state 'citation_2'.freeze
+      render partial: 'greeting_7'.freeze, locals: {body: @body, session: @session, done: true}
+    else
+      next_state 'greeting_7'.freeze
+      render partial: 'greeting_7'.freeze, locals: {body: @body, session: @session, done: false}
+    end
+  end
+
+  def citation_2
+    get_session
+    if body.to_s=~ /^[0-9][0-9]$/
+      @session.update(birth_day: body.to_s.to_i)
+      next_state 'citation_2'.freeze
+      render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: true}
+    else
+      next_state 'citation_2'.freeze
+      render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: false}
+    end
   end
 
 private
