@@ -39,7 +39,7 @@ class SmsController < ApplicationController
     get_session
     if body.to_s=~ /[^0123456789]/
       @session.update(citation_number: body.to_s)
-      next_state 'greeting_6'.freeze
+      next_state 'citation_1'.freeze
       render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session, done: true}
     else
       if body.to_s.length> 0

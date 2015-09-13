@@ -1,1 +1,6 @@
-Great, thanks. We've found <%= citations.count %> citations
+<%- if citations.count> 0 -%>
+Great, thanks. We've found <%= citations.count %> citations:
+<%= citations.inspect %>
+<%- else -%>
+No citations found
+<%- end -%>
