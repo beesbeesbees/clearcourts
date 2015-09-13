@@ -50,6 +50,9 @@
 /*------------------------------------------------------------------
 [2. Header / #header]
 */
+	.navbar {
+		margin-bottom: 0 !important;
+	}
 	.navbar-header {
 		height: 60px;
 	}
@@ -75,6 +78,9 @@
 /*------------------------------------------------------------------
 [4. Content / #content]
 */
+	.masthead {
+		background-color: $brand-primary;
+	}
 	.icons {
 		margin-top: 30px;
 	}
