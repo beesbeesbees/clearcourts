@@ -39,12 +39,17 @@ class SmsController < ApplicationController
     get_session
     if body.to_s=~ /[^0123456789]/
       @session.update(citation_number: body.to_s)
-      next_state 'greeting_5'.freeze
+      next_state 'greeting_6'.freeze
       render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session, done: true}
     else
-      @session.update(last_name: body.to_s)
-      next_state 'greeting_5'.freeze
-      render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session, done: true}
+      if body.to_s.length> 0
+        @session.update(last_name: body.to_s)
+        next_state 'greeting_6'.freeze
+        render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session, done: true}
+      else
+        next_state 'greeting_5'.freeze
+        render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session, done: false}
+      end
     end
   end
 
