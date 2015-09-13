@@ -5,7 +5,7 @@ class SmsController < ApplicationController
 Rails.logger.debug "params== #{params}"
     @session= Session.where(phone_number: params[:From]).first_or_initialize
     @session.update!(
-      phone_number: params['Body'.freeze],
+      phone_number: params['From'.freeze],
       state: 'greeting_3'.freeze, #next stage
     )
     render partial: 'greeting_1'.freeze
