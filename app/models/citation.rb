@@ -1,3 +1,4 @@
+require 'csv'
 # == Schema Information
 #
 # Table name: citations
@@ -24,7 +25,26 @@ class Citation < ActiveRecord::Base
 
   accepts_nested_attributes_for :violations
 
+
   def formatted_date
-  	citation_date.strftime("%B %e, %Y") 
+    citation_date.strftime("%B %e, %Y")
+  end
+
+  def self.import(file)
+    count = 0
+
+    csv_text = File.read(file.path)
+    csv = CSV.parse(csv_text, :headers => true)
+
+    csv.each do |row|
+      court = CreateCourt.call(
+        row['court_address'],
+        row['court_location']
+      )
+
+      citation = CreateCitation.call(row, court)
+      count += 1
+    end
+    count
   end
 end

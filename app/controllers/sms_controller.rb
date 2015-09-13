@@ -1,7 +1,9 @@
 class SmsController < ApplicationController
+  skip_before_filter :verify_authenticity_token #no web form token
 
   def greeting_1
-
+    #render inline: 'foobar47'
+    render partial: 'greeting_1'
   end
 
   def greeting_3

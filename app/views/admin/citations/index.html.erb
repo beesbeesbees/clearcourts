@@ -1,5 +1,7 @@
 <div class="container">
   <div class="row">
+     <%= link_to "Upload CSV", csv_admin_citations_path, class: "btn btn-default" %>
+
     <% if current_user.court_user? %>
       <h3>Citations for Courthouse @ <%= current_user.court.court_address %></h3>
     <% end %>

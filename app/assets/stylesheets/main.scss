@@ -68,6 +68,9 @@
 /*------------------------------------------------------------------
 [2. Header / #header]
 */
+	.navbar {
+		margin-bottom: 0 !important;
+	}
 	.navbar-header {
 		height: 60px;
 	}
@@ -93,6 +96,20 @@
 /*------------------------------------------------------------------
 [4. Content / #content]
 */
+
+	.masthead {
+		background-color: $brand-primary;
+		padding: 45px 0 15px;
+		h2 {
+			font-weight: 700;
+			font-size: 36px;
+		}
+		.btn {
+			border-color: white !important;
+			font-size: 30px;
+			margin: 30px 0;
+		}
+	}
 	#icons {
 		margin-top: 30px;
 		h2 {
@@ -162,7 +179,7 @@
 			.container {
 				padding: 45px 10px;
 			}
-			h1, h2, h3, h4, h5 {
+			h1, h2, h3, h4, h5, p {
 				position: relative;
 				z-index: 2;
 			}
@@ -175,6 +192,9 @@
 				font-size: 30px;
 				position: relative;
 				z-index: 2;
+			}
+			&.about {
+				background-image: image-url("banner.jpg");
 			}
 		} // #banner 
 

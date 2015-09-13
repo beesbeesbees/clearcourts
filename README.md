@@ -5,7 +5,7 @@
 
 #### production server located at
 
-DNS:
+DNS: clearcourts.org
 
 IPv4: 107.170.234.136
 

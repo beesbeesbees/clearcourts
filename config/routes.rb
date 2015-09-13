@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get :pay, to: "home#pay"
   get :court, to: "home#court"
 
+  get :about, to: "home#about"
+
+
   get :sessions, to: "home#sessions"
 
   post :sms, to: 'twilio#sms'
@@ -16,17 +19,20 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :citations do
-      resources :violations
+      collection do
+        get :csv
+        post :import
+      end
     end
-
     resources :courts
   end
 
   resources :sessions
 
-  authenticated :user, ->(user) {user.admin?} do
-    root to: "admin/home#index", as: :admin_root
+  authenticated :user, ->(user) {user.admin? || user.court_user?} do
+    root to: "admin/citations#index", as: :admin_root
   end
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/admin/sidekiq'
 
