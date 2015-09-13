@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
+        format.html { redirect_to edit_session_path(@session), notice: 'Session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }
@@ -30,6 +30,7 @@ class SessionsController < ApplicationController
   end
 
   def update
+  	failure
     respond_to do |format|
       if @session.update(session_params)
         format.html { redirect_to @session, notice: 'Session was successfully updated.' }
