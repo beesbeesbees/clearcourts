@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def render_action(controller, action, params)
     controller.class_eval do
       def params=(params)
@@ -15,5 +16,12 @@ module ApplicationHelper
     instance.process_action(action)
     instance.send(action)
     instance.response.body
+
+  def court_text(court)
+    if court
+      court.court_address
+    else
+      'No Court Associated'.freeze
+    end
   end
 end

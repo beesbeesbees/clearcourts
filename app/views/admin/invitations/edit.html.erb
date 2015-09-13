@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-left">
+        <h2>You've been invited to join ClearCourts!</h2>
+      </div>
+
+        <p><%= t 'devise.invitations.edit.header' %></p>
+
+        <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f| %>
+          <%= devise_error_messages! %>
+        <%= f.hidden_field :invitation_token %>
+
+        <div class="form-group">
+          <%= f.password_field :password, placeholder: "password", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, placeholder: "password confirmation", class: "form-control"%>
+        </div>
+
+        <p><%= f.submit t("devise.invitations.edit.submit_button"), class: "btn btn-success" %></p>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+

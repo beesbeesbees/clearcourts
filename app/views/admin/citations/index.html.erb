@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <% if current_user.court_user? %>
+      <h3>Citations for Courthouse @ <%= current_user.court.court_address %></h3>
+    <% end %>
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>Citation #</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>D.O.B</th>
+          <th>Violations</th>
+          <th>Defendant Address</th>
+          <th>Defendant City</th>
+          <th></th>
+          <th>License #</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @citations.each do |citation| %>
+        <tr>
+          <td><%= citation.citation_number %></td>
+          <td><%= citation.first_name %></td>
+          <td><%= citation.last_name %></td>
+          <td><%= citation.date_of_birth %></td>
+          <td><strong><%= citation.violations.count %></strong></td>
+          <td><%= citation.defendant_address %></td>
+          <td><%= citation.defendant_city %></td>
+          <td><%= citation.defendant_state %></td>
+          <td><%= citation.drivers_license_number %></td>
+          <td><%= link_to "edit", edit_admin_citation_path(citation), class: "btn btn-xs btn-info" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
