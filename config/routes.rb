@@ -57,15 +57,11 @@ Rails.application.routes.draw do
 
   resources :courts
 
-  authenticated :user, ->(user) {user.admin? || user.court_user?} do
-    root to: "admin/citations#index", as: :admin_root
-  end
-
   require 'sidekiq/web'
   mount Sidekiq::Web => '/admin/sidekiq'
 
   authenticated :user do
-    root to: "home#landing", as: :user_root
+    root to: "admin/citations#index", as: :user_root
   end
   root 'home#index' #non-users
 
