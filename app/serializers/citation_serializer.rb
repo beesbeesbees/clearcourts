@@ -3,4 +3,5 @@ class CitationSerializer < ActiveModel::Serializer
     :defendant_state, :drivers_license_number, :court_id, :court_date
 
   has_many :violations
+
 end
