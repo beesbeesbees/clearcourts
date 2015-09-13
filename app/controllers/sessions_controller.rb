@@ -6,6 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def show
+  	@citations = Citation.where(first_name: @session.first_name, last_name: @session.last_name)
+  	#also actually validate by DOB
   end
 
   def new
