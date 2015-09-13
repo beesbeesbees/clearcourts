@@ -4,6 +4,10 @@ class TwilioController < ApplicationController
 
   def sms
     @session= Session.where(phone_number: twilio_params[:From]).first_or_initialize
+    Rails.logger.debug "twilio_params[:From]== #{twilio_params[:From]}"
+    Rails.logger.debug "@session.next_action.to_sym== #{@session.next_action.to_sym}"
+    Rails.logger.debug "twilio_params== #{twilio_params}"
+    Rails.logger.debug "render_action_to_s== #{render_action_to_s(SmsController, @session.next_action.to_sym, twilio_params)}"
     SmsWorker.perform_in(2.seconds,
       twilio_params[:From],  #send the text to the number we received this one from
       render_action_to_s(SmsController, @session.next_action.to_sym, twilio_params) #render the view into the SMS body
