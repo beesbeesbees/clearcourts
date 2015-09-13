@@ -57,6 +57,9 @@ $link-hover-decoration: underline;
 .green-dark {
 	color: $brand-secondary;
 }
+.capitalize {
+	text-transform: capitalize;
+}
 .underline {
 	border-bottom: 1px solid $gray-lighter;
 	padding-bottom: 5px;

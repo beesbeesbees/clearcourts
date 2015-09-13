@@ -8,11 +8,11 @@
     <%= form_for Session.new, :html => {:class => 'form'} do |f| %>
       <div class="form-group">
         <%= label_tag(:last_name, "Last Name:") %>
-        <%= text_field(:last_name, :last_name, class: "form-control") %>
+        <%= text_field(:last_name, :last_name, class: "form-control input-lg") %>
       </div>
       <div class="form-group">
         <%= label_tag(:citation_number, "Citation Number:") %>
-        <%= text_field(:citation_number, :citation_number, class: "form-control", placeholder: 'This is typically an 8 or 9 digit number') %>
+        <%= text_field(:citation_number, :citation_number, class: "form-control input-lg", placeholder: 'This is typically an 8 or 9 digit number') %>
       </div>
       <%= submit_tag "Next", class: "btn btn-primary btn-block" %>
     <% end %>
