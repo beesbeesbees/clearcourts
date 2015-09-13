@@ -39,7 +39,7 @@ class Admin::CitationsController < ApplicationController
       if current_user.court_user?
         @citations = current_user.court.citations.includes(:violations)
       else
-        @citations = Citations.all.includes(:violations)
+        @citations = Citation.all.includes(:violations)
       end
     end
 
