@@ -4,6 +4,15 @@
 
     <p>The ClearCourts API is loosely organized around REST. In this early version, it's primary purpose is to provide endpoints which can accept new data the system needs to run automatically, as well as basic CRUD operations and authorization. This is a WIP - no specific versioning has been introduced yet.</p>
     <hr />
+
+    <div class="light well">
+      <h3>Your API Token</h3>
+      <p><%= current_user.token || "none created yet" %></p>
+      <p><%= link_to "Regenerate", api_regenerate_token_path, class: "btn btn-default"  %></p>
+      <p>This needs to be included as the value to the authorization key in the header of your requests:</p>
+      <p><strong>try it out!</strong></p>
+      <p> curl <%= root_url %>api/courts --header "Authorization: <%= current_user.token %>"</p>
+    </div>
     <div class="row">
       <h3><strong>Citations</strong></h3>
       <div class="col-md-6">

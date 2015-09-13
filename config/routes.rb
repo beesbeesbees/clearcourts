@@ -40,10 +40,15 @@ Rails.application.routes.draw do
 
     resources :violations
 
-    get :index
+    get :docs
+    get :regenerate_token
   end
 
   resources :sessions
+
+  get 'name', to: 'sessions#new'
+  get 'birthdate', to: 'sessions#update'
+
   resources :citations, only: [:show, :index]
   resources :courts, only: [:show, :index]
 
