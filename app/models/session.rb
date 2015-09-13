@@ -29,4 +29,8 @@ class Session < ActiveRecord::Base
   def web!
     update!(phone_number: nil)
   end
+
+  def next_action
+    state
+  end
 end

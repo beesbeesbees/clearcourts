@@ -35,4 +35,6 @@ Rails.application.routes.draw do
   end
   root 'home#index' #non-users
 
+  get :foo, to: 'sms#foo'
+
 end
