@@ -1,7 +1,6 @@
 <%= render "shared/header" %>
 <div class="container">
-  <h3 class="gray">Hi, I'm your ClearCourts helper, a textable all-in-one local courts expert.</h3>
-  <h2 class="gray">To get started, what's your <span class="green">Name</span>.</h2>
+  <h2 class="gray">For an extra security measure, please confirm your <span class="green-dark">Date of Birth</span>.</h2>
   <section class="form-section">
     <%= form_for @session, :html => {:class => 'form'} do |f| %>
       <% if @session.errors.any? %>
@@ -16,16 +15,21 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, :required => true, class: "form-control input-lg" %>
+        <%= f.label :birth_month, "Month" %>
+        <%= f.select :birth_month, 1..12, class: "form-control input-lg" %>
       </div>
       <div class="form-group">
-        <%= f.label :last_name, :required => true %>
-        <%= f.text_field :last_name, :required => true, class: "form-control input-lg" %>
+        <%= f.label :birth_day, "Day" %>
+        <%= f.select :birth_day, 1..31, class: "form-control input-lg" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :birth_year, "Year" %>
+        <%= f.select :birth_year, options_for_select((1900..2015), 1980) , class: "form-control input-lg" %>
       </div>
       <div class="actions">
         <%= f.submit "Next", class: "btn btn-primary btn-block btn-lg" %>
       </div>
     <% end %>
+
   </section>
 </div>
