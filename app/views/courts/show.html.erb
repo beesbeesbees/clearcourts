@@ -1,18 +1,16 @@
 <%= render "shared/header" %>
 <div class="container">
-  <h2 class="gray">Court Info, <span class="green">Citizen</span>.</h2>
-  <h4>As a reminder, your citation number is <%#= citation_number %> <span class="green">citation_number</span></h4>
-  <h4 class="text-danger">Your total fees are <strong>$<%#= total_fees %>total_fees.00</strong> and payment is due by <%#= court_date %>court_date</h4>
+  <h2 class="gray">Court Info for <span class="green"><%= @court.court_location%></span>.</h2>
   <section class="court-info">
     <div class="row">
       <div class="col-sm-8">
-        <h3>Municipal Court of <span class="capitalize"><%#= court_location %>court_location</span></h3>
+        <h3>Municipal Court of <span class="capitalize"><%= @court.court_location%></span></h3>
         <h4>
           <address>
-            <%#= court_address %>court_address
+            <%= @court.court_address %>
           </address>
         </h4>
-        <h4>Phone: <a href="tel:<%#= court_telephone %>">court_telephone</a></h4>
+        <h4>Phone: <a href="tel: (314) 561-2476">(314) 561-2476</a></h4>
 
         <h3>Helpful Info</h3>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -26,7 +24,7 @@
             </a>
             <div id="court-directions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="directions-heading">
               <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <%= render "shared/directions" %>
               </div>
             </div>
           </div>
@@ -54,7 +52,7 @@
             </a>
             <div id="your-rights" class="panel-collapse collapse" role="tabpanel" aria-labelledby="rights-heading">
               <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <%= render "shared/rights" %>
               </div>
             </div>
           </div>
@@ -62,7 +60,7 @@
       </div>
       <div class="sidebar col-sm-4">
         <h3>Pay Online</h3>
-        <p>A mote of dust suspended in a sunbeam cosmos radio telescope preserve and cherish that pale blue dot.</p>
+        <p>Use our secure server to pay your court costs.</p>
         <a href="#<%#= stripe_url %>" class="btn btn-primary btn-lg">Click to Pay Now</a>
       </div> <!-- .sidebar -->
     </div>

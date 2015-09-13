@@ -6,6 +6,10 @@ class CitationsController < ApplicationController
     @citations = Citation.all
   end
 
+  def show
+  	@court = @citation.court
+  end
+
   def pay
   end
 
