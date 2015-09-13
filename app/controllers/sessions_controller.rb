@@ -54,8 +54,8 @@ class SessionsController < ApplicationController
 
   private
     def set_session
-      # @session = Session.find(params[:id])
-      @session = Session.find(session[:current_session_id])
+      @session = Session.find(params[:id])
+      # @session = Session.find(session[:current_session_id])
     end
 
     def session_params
