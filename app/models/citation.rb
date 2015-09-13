@@ -23,4 +23,8 @@ class Citation < ActiveRecord::Base
   belongs_to :court
 
   accepts_nested_attributes_for :violations
+
+  def formatted_date
+  	citation_date.strftime("%B %e, %Y") 
+  end
 end

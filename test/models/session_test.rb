@@ -9,6 +9,11 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  state          :string(255)
+#  first_name     :string(255)
+#  last_name      :string(255)
+#  birth_day      :integer
+#  birth_month    :integer
+#  birth_year     :integer
 #
 
 require 'test_helper'
