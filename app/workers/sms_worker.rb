@@ -6,7 +6,11 @@ class SmsWorker < Object
   end
 
   def perform to= ''.freeze, body= ''.freeze
-    @pots.send_sms to: to, body: body
+    if @pots.send_sms to: to, body: body
+      true
+    else
+      raise 'Cannot send SMS'.freeze
+    end
   end
 
 end
