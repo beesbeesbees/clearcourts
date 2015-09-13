@@ -3,6 +3,8 @@ class TwilioController < ApplicationController
   before_filter :verify_account
 
   def sms
+    @session= Session.where(phone_number: twilio_params[:From]).first_or_initialize
+    #@session.state
     render nothing: true, status: 200, :content_type => 'application/json'.freeze
   end
 
@@ -14,7 +16,7 @@ private
   end
 
   def twilio_params
-    params.permit(
+    @cached_twilio_params||= params.permit(
       :ToCountry, :ToState, :SmsMessageSid, :NumMedia, :ToCity,
       :FromZip, :SmsSid, :FromState, :SmsStatus, :FromCity, :Body,
       :FromCountry, :To, :ToZip, :NumSegments, :MessageSid,
