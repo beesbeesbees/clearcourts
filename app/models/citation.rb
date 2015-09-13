@@ -34,18 +34,16 @@ class Citation < ActiveRecord::Base
     end
   end
 
-  # def has_warrant? TOO TIRED DON'T KNOW WTF
-  #   violations.each do |v|
-  #     v.warrant_status
-  #   end
-  # 
-
   def has_warrant?
     if violations.where(warrant_status: true).count == 0
       false
     else
       true
     end
+  end
+
+  def warrant_date
+    violations.where(warrant_status: true).order(:status_date).first.status_date
   end
 
   def self.import(file)
