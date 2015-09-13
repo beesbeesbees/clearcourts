@@ -1,6 +1,8 @@
 <%- if citations.count> 0 -%>
 Great, thanks. We've found <%= citations.count %> citations:
-<%= citations.inspect %>
+<%- citations.each do |citation| -%>
+<br /><%= citation.inspect %>
+<%- end -%>
 <%- else -%>
 No citations found
 <%- end -%>
