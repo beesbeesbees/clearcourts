@@ -16,6 +16,7 @@ module ApplicationHelper
     instance.process_action(action)
     instance.send(action)
     instance.response.body
+  end
 
   def court_text(court)
     if court
