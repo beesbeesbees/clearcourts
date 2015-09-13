@@ -15,35 +15,41 @@ class SmsController < ApplicationController
     if body.to_s.length> 0
       @session.update(first_name: body.to_s)
       next_state 'greeting_4'.freeze
-      render partial: 'greeting_3'.freeze, locals: {body: @body, done: true}
+      render partial: 'greeting_3'.freeze, locals: {body: @body, session: @session, done: true}
     else
       next_state 'greeting_3'.freeze
-      render partial: 'greeting_3'.freeze, locals: {body: @body, done: false}
+      render partial: 'greeting_3'.freeze, locals: {body: @body, session: @session, done: false}
     end
   end
 
   def greeting_4
     get_session
-    next_state 'greeting_5'.freeze
-    render partial: 'greeting_4'.freeze, locals: {body: @body}
+    if ['IPHONE', 'ANDROID'].include? body.upcase
+      @session.update(phone_type: body.upcase)
+      next_state 'greeting_5'.freeze
+      render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session}
+    else
+      next_state 'greeting_5'.freeze
+      render partial: 'greeting_4'.freeze, locals: {body: @body, session: @session}
+    end
   end
 
   def greeting_5
     get_session
     next_state 'greeting_6'.freeze
-    render partial: 'greeting_5'.freeze, locals: {body: @body}
+    render partial: 'greeting_5'.freeze, locals: {body: @body, session: @session}
   end
 
   def greeting_6
     get_session
     next_state 'greeting_7'.freeze
-    render partial: 'greeting_6'.freeze, locals: {body: @body}
+    render partial: 'greeting_6'.freeze, locals: {body: @body, session: @session}
   end
 
   def greeting_7
     get_session
     next_state 'greeting_1'.freeze
-    render partial: 'greeting_7'.freeze, locals: {body: @body}
+    render partial: 'greeting_7'.freeze, locals: {body: @body, session: @session}
   end
 
 private
