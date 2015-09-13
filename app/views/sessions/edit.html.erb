@@ -16,15 +16,15 @@
 
       <div class="form-group">
         <%= f.label :birth_month, "Month" %>
-        <%= f.select :birth_month, 1..12, class: "form-control input-lg" %>
+        <%= f.select :birth_month, 1..12, {selected: (1) }, {:class => "form-control input-lg"} %>
       </div>
       <div class="form-group">
         <%= f.label :birth_day, "Day" %>
-        <%= f.select :birth_day, 1..31, class: "form-control input-lg" %>
+        <%= f.select :birth_day, 1..31, {selected: (1) }, {:class => "form-control input-lg"} %>
       </div>
       <div class="form-group">
         <%= f.label :birth_year, "Year" %>
-        <%= f.select :birth_year, options_for_select((1900..2015), 1980) , class: "form-control input-lg" %>
+        <%= f.select :birth_year, options_for_select((1900..2015), 1980), {selected: (1980) }, {:class => "form-control input-lg"} %>
       </div>
       <div class="actions">
         <%= f.submit "Next", class: "btn btn-primary btn-block btn-lg" %>
