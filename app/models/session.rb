@@ -31,6 +31,6 @@ class Session < ActiveRecord::Base
   end
 
   def next_action
-    state
+    state || 'greeting_1'.freeze
   end
 end
