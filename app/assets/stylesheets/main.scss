@@ -1,98 +1,173 @@
-// Overrides
-a {
-	color: $brand-secondary !important;
-}
+/*------------------------------------------------------------------
+[Table of contents]
 
-.btn {
-	font-family: $font-family-sans-serif;
-	text-transform: uppercase;
-}
-.btn-primary {
-	color: white !important;
-    background-color: $btn-primary-bg !important;
-    border-color: $btn-primary-border !important;
-    &:hover {
-    	background-color: $brand-secondary !important;
-    }
-}
-.nav > li > a {
-	padding: 10px 13px !important;
-}
-.container {
-	padding-bottom: 20px;
-}
+1. Overrides
+2. Header / #header
+3. Navigation / .navbar
+4. Content / #content
+	4.1 Home / .controller-home
+5. Sidebar / #sidebar
+6. Footer / .footer
+-------------------------------------------------------------------*/
 
-// Home/Landing
-
-.controller-home .navbar {
-	margin-bottom: 0;
-}
-
-#banner {
-	background-image: image-url("banner.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	position: relative;
-	z-index: 0;
-	.overlay {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		display: block;
-		background-color: $brand-secondary;
-		opacity: 0.1;
-		z-index: 1;
+/*------------------------------------------------------------------
+[1. Overrides]
+*/
+	a {
+		color: $brand-secondary !important;
+	}
+	.btn {
+		font-family: $font-family-sans-serif;
+		text-transform: uppercase;
+	}
+	.btn-primary {
+		color: white !important;
+	    background-color: $btn-primary-bg !important;
+	    border-color: $btn-primary-border !important;
+	    &:hover {
+	    	background-color: $brand-secondary !important;
+	    }
+	}
+	.nav > li > a {
+		padding: 10px 13px !important;
 	}
 	.container {
-		padding: 45px 10px;
+		padding-bottom: 45px;
 	}
-	h1, h2, h3, h4, h5 {
-		position: relative;
-		z-index: 2;
+	.dropdown-menu {
+		@media (max-width: $screen-sm) {
+			width: 100%;
+		}
+		> li > a {
+			text-align: center;
+		}
 	}
-	h4 {
-		border-top: 1px solid white;
-		padding: 15px 0;
-		font-family: $font-family-serif;
+	.btn-lg {
+		font-size: 30px !important;
+		padding: 30px 0 !important;
 	}
-	.btn {
-		font-size: 30px;
-		position: relative;
-		z-index: 2;
+
+/*------------------------------------------------------------------
+[2. Header / #header]
+*/
+	.navbar-header {
+		height: 60px;
 	}
-}
-.single-icon {
-	text-align: center;
-	margin: 20px auto 40px;
-}
-.help-block {
-	border-bottom: 1px solid $gray-lighter;
-	&.warrant {
-		color: #a94442;
+	.navbar-brand {
+		font-family: $font-family-sans-serif;
+		font-size: 30px !important;
 	}
-}
-.list-group-item {
-	h5 {
-		margin-bottom: 5px;	
-	}
-	.btn {
-		margin-bottom: 5px;
-	}
-}
-.payment-options {
-	.btn-group {
-		width: 100%;
-	}
-	.btn-group > .btn, .btn-group-vertical > .btn {
-		width: 33.3333333333%;
-	}
-}
-.dropdown-menu {
-	@media (max-width: $screen-sm) {
-		width: 100%;
-	}
-	> li > a {
+	.navbar-default {
+		background-color: transparent !important;
+    border-color: #e7e7e7;
+	}	
+
+/*------------------------------------------------------------------
+[3. Navigation / .navbar ]
+*/
+	.navbar-default .navbar-nav > li > a {
+		color: $gray !important;
 		text-align: center;
+		font-size: 18px;
+		padding: 20px !important;
 	}
-}
+
+/*------------------------------------------------------------------
+[4. Content / #content]
+*/
+	.icons {
+		margin-top: 30px;
+	}
+	.single-icon {
+		text-align: center;
+		margin: 20px auto 40px;
+	}
+	.help-block {
+		border-bottom: 1px solid $gray-lighter;
+		&.warrant {
+			color: #a94442;
+		}
+	}
+	.list-group-item {
+		h5 {
+			margin-bottom: 5px;	
+		}
+		.btn {
+			margin-bottom: 5px;
+		}
+	}
+	.payment-options {
+		.btn-group {
+			width: 100%;
+		}
+		.btn-group > .btn, .btn-group-vertical > .btn {
+			width: 33.3333333333%;
+		}
+	}
+	.court-info ol {
+		padding-left: 20px;
+	}
+
+	/*------------------------------------------------------------------
+	[4.1 Home / #.controller-home]
+	*/
+
+		.controller-home .navbar {
+			margin-bottom: 0;
+		}
+
+	/*------------------------------------------------------------------
+	[4.2 Banner / #banner]
+	*/
+
+		#banner {
+			background-image: image-url("banner.jpg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			position: relative;
+			z-index: 0;
+			.overlay {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				display: block;
+				background-color: white;
+				opacity: 0.8;
+				z-index: 1;
+			}
+			.container {
+				padding: 45px 10px;
+			}
+			h1, h2, h3, h4, h5 {
+				position: relative;
+				z-index: 2;
+			}
+			h4 {
+				border-top: 1px solid white;
+				padding: 15px 0;
+				font-family: $font-family-serif;
+			}
+			.btn {
+				font-size: 30px;
+				position: relative;
+				z-index: 2;
+			}
+		} // #banner 
+
+/*------------------------------------------------------------------
+[5. Sidebar / .sidebar]
+*/
+
+/*------------------------------------------------------------------
+[6. Footer / .footer]
+*/
+	.footer {
+		padding: 30px 0;
+		background-color: $gray-dark;
+		color: white;
+		a {
+			color: white !important;
+			text-decoration: underline;
+		}
+	}
