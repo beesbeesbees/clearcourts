@@ -2,15 +2,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<h2 class="gray">Great, thanks.</h2>
+		<% if @citations.count >= 1 %>
+			<h2 class="gray">Great, thanks!</h2>
 			<h3>We've found 
-				<span class="green">
-					<%= @citations.count %> citation<% if @citations.count > 1 %>s<% end %>
-				</span>:
+				<span class="green"><%= @citations.count %> citation<% if @citations.count > 1 %>s<% end %> for you</span>, <%#= first_name %>.
 			</h3>
 			<section class="citations-group">
 				<div class="list-group">
-
 					<% @citations.each do |c| %>
 						<%= link_to citation_path(c), { :class=>"list-group-item" } do %>
 							<h4 class="list-group-item-heading">Citation number: <%= c.citation_number %></h4>
@@ -29,6 +27,9 @@
 					<% end %>
 				</div>
 			</section> <!-- .citations-group -->
+		<% else %>
+			<%= render "shared/help_line" %>
+		<% end %>
 		</div>
 	</div>
 </div>

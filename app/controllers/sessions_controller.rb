@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       if @session.save
+      	session[:current_session_id] = @session.id
         format.html { redirect_to edit_session_path(@session), notice: 'Session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
@@ -53,7 +54,8 @@ class SessionsController < ApplicationController
 
   private
     def set_session
-      @session = Session.find(params[:id])
+      # @session = Session.find(params[:id])
+      @session = Session.find(session[:current_session_id])
     end
 
     def session_params
