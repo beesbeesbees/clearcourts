@@ -3,10 +3,10 @@ class TwilioController < ApplicationController
   before_filter :verify_account
 
   def sms
-    @session= Session.where(phone_number: twilio_params[:From]).first_or_initialize
-    SmsWorker.new.perform_in(2.seconds,
+    @session= Session.where(phone_number: params[:From]).first_or_initialize
+    SmsWorker.perform_in(2.seconds,
       twilio_params[:From],  #send the text to the number we received this one from
-      render_action_to_s(SmsController, @session.next_action.to_sym, twilio_params) #render the view into the SMS body
+      'f'<< render_action_to_s(SmsController, @session.next_action, twilio_params).to_s #render the view into the SMS body
     )
     render nothing: true, status: 200, :content_type => 'application/json'
   end
@@ -39,8 +39,8 @@ private
     instance= controller.new
     instance.request= @_request
     instance.response= @_response
-    instance.params= params
-    instance.process_action(action)
+    instance.params= params.dup
+    #instance.process_action(action)
     instance.send(action)
     instance.response.body
   end

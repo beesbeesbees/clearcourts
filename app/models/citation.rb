@@ -26,6 +26,10 @@ class Citation < ActiveRecord::Base
   accepts_nested_attributes_for :violations
 
 
+  def formatted_date
+    citation_date.strftime("%B %e, %Y")
+  end
+
   def self.import(file)
     count = 0
 

@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
+  resources :citations, only: [:show, :index]
 
   authenticated :user, ->(user) {user.admin? || user.court_user?} do
     root to: "admin/citations#index", as: :admin_root
