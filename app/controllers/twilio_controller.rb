@@ -3,14 +3,9 @@ class TwilioController < ApplicationController
   before_filter :verify_account
 
   def sms
-    @session= Session.where(phone_number: twilio_params[:From]).first_or_initialize
-    Rails.logger.debug "twilio_params[:From]== #{twilio_params[:From]}"
-    Rails.logger.debug "@session.next_action.to_sym== #{@session.next_action.to_sym}"
-    Rails.logger.debug "twilio_params== #{twilio_params}"
-    Rails.logger.debug "render_action_to_s== #{render_action_to_s(SmsController, @session.next_action.to_sym, twilio_params)}"
     SmsWorker.perform_in(2.seconds,
       twilio_params[:From],  #send the text to the number we received this one from
-      'f'<< render_action_to_s(SmsController, @session.next_action.to_sym, twilio_params).to_s #render the view into the SMS body
+      'f'<< render_action_to_s(SmsController, @session.next_action, twilio_params).to_s #render the view into the SMS body
     )
     render nothing: true, status: 200, :content_type => 'application/json'
   end
