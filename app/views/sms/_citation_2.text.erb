@@ -1,11 +1,12 @@
 <%- if done %>
-<%- if citations.count> 0 -%>
-Great, thanks. We've found <%= citations.count %> citations:
-<%- citations.each do |citation| -%>
-<br /><%= citation.inspect %>
-<%- end -%>
+  <%- if citations.count> 0 -%>
+    Great, thanks. We've found <%= citations.count %> citations:
+    <%- citations.each do |citation| -%>
+      <br /><%= citation.inspect %>
+    <%- end -%>
+  <%- else -%>
+    I don't see any citations
+  <%- end -%>
 <%- else -%>
-I don't see any citations
-<%- else -%>
-Please enter the 2-digit day you were born (e.g. '07')
+  Please enter the 2-digit day you were born (e.g. '07')
 <%- end -%>
