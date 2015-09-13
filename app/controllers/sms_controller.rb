@@ -106,6 +106,9 @@ class SmsController < ApplicationController
     end
   end
 
+  def citation_3
+  end
+
 private
 
   def get_session
