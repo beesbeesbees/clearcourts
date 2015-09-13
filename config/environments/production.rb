@@ -78,4 +78,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.eager_load= true
+  config.action_mailer.default_url_options = { host: '107.170.234.136'}
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mandrillapp.com',
+    port:                 587,
+    domain:               '107.170.234.136',
+    user_name:            ENV['email_username'.freeze],
+    password:             ENV['email_password'.freeze],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 end
