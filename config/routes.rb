@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   get :court, to: "home#court"
 
   get :about, to: "home#about"
+  get :api, to: "home#api"
 
 
   get :sessions, to: "home#sessions"
+
 
   post :sms, to: 'twilio#sms'
 
