@@ -5,9 +5,9 @@
     <%= form_for Session.new, :html => {:class => 'form'} do |f| %>
       <div class="form-group">
         <%= label_tag(:first_name, "First Name:") %>
-        <%= text_field(:first_name, :first_name, class: "form-control") %>
+        <%= text_field(:first_name, :first_name, class: "form-control input-lg") %>
       </div>
-      <%= submit_tag "Next", class: "btn btn-primary btn-block" %>
+      <%= submit_tag "Next", class: "btn btn-primary btn-block btn-lg" %>
     <% end %>
   </section>
 </div>

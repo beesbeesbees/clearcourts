@@ -7,8 +7,8 @@
   <section class="payment-options">
     <h3>How to Resolve</h3>
     <div class="btn-group btn-group-lg" role="group">
-      <button type="button" class="btn btn-primary"><%= icon('usd', '', id: 'pay-online', class: '') %> Pay<br><span class="small">Online</span></button>
-      <button type="button" class="btn btn-default"><%= icon('balance-scale', '', id: 'court-info', class: '') %> Court<br><span class="small">Info</span></button>
+      <button type="button" class="btn btn-primary"><%= icon('usd', '', id: 'pay-online', class: '') %>Pay<br><span class="small">Options</span></button>
+      <button type="button" class="btn btn-default"><%= icon('balancescale', '', id: 'court-info', class: '') %>Court<br><span class="small">Info</span></button>
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Other<br><span class="small">Options</span>
         <span class="caret"></span>
@@ -34,6 +34,6 @@
           <li><%#= defendant_city %>defendant_city, <%#= defendant_state %>defendant_state</li>
           <li>License: <%#= drivers_license_number %>drivers_license_number</li>
         </ul>
-      </div>
-    </div>
+      </div> <!-- .list-group-item -->
+    </div> <!-- .list-group -->
 </div>

@@ -5,8 +5,8 @@
     <%= form_for Session.new, :html => {:class => 'form'} do |f| %>
       <div class="form-group">
         <%= label_tag(:dob, "Date of Birth:") %>
-        <%= date_field_tag 'dob', '01/01/1980', class: 'form-control' %>
+        <%= date_field_tag 'dob', '01/01/1980', class: 'form-control input-lg' %>
       </div>
-      <%= submit_tag "Next", class: "btn btn-primary btn-block" %>
+      <%= submit_tag "Next", class: "btn btn-primary btn-block btn-lg" %>
     <% end %>
   </section>
