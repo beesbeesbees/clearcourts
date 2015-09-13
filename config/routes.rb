@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations" }
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations", invitations: "admin/invitations" }
 
   get :begin, to: "home#begin"
   get :last_citation, to: "home#last_citation"
@@ -26,13 +26,14 @@ Rails.application.routes.draw do
 
   authenticated :user, ->(user) {user.admin?} do
     root to: "admin/home#index", as: :admin_root
-    require 'sidekiq/web'
-    mount Sidekiq::Web => '/admin/sidekiq'
   end
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/admin/sidekiq'
 
   authenticated :user do
     root to: "home#landing", as: :user_root
   end
   root 'home#index' #non-users
+
 
 end

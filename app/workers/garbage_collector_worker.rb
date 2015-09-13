@@ -9,7 +9,7 @@ class GarbageCollectorWorker < Object
 private
 
   def respawn_needed?
-    false
+    true
   end
 
   def respawn
