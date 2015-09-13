@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
     role == "admin"
   end
 
-  def court?
+  def court_user?
     role == "court"
   end
 

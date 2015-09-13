@@ -18,12 +18,10 @@ Rails.application.routes.draw do
     resources :courts
   end
 
-  authenticated :user, ->(user) {user.admin?} do
-    root to: "admin/home#index", as: :admin_root
+  authenticated :user, ->(user) {user.admin? || user.court_user?} do
+    root to: "admin/users#index", as: :admin_root
   end
 
-  authenticated :user do
-    root to: "home#landing", as: :user_root
-  end
+  root to: "home#landing", as: :user_root
 
 end
