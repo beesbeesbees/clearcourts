@@ -7,7 +7,7 @@ class TwilioController < ApplicationController
     if twilio_params[:Body].upcase.ltrim.rtrim== 'START'.freeze
       @_session.update!(state: 'greeting_1'.freeze)
     end
-    SmsWorker.perform_in(2.seconds,
+    SmsWorker.perform_async(
       twilio_params[:From],  #send the text to the number we received this one from
       render_action_to_s(SmsController, @_session.next_action, twilio_params).to_s #render the view into the SMS body
     )
