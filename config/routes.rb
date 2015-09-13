@@ -49,7 +49,13 @@ Rails.application.routes.draw do
   get 'name', to: 'sessions#new'
   get 'birthdate', to: 'sessions#update'
 
-  resources :citations, only: [:show, :index]
+  resources :citations, only: [:show, :index] do
+    member do
+      get :pay
+      post :charge
+      get :pay_confirmed
+    end
+  end
   resources :courts, only: [:show, :index]
 
   authenticated :user, ->(user) {user.admin? || user.court_user?} do

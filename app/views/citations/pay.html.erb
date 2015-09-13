@@ -3,7 +3,7 @@
   <div class="container">
     <h2 class="gray">Let's get this taken care of.</h2>
     <h4>As a reminder, your citation number is <%= @citation.citation_number %> <span class="green">citation_number</span></h4>
-    <h4 class="text-danger">Your total fees are <strong>$<%#= total_fees %>total_fees.00</strong> and payment is due by <%#= court_date %>court_date</h4>
+    <h4 class="text-danger">Your total fees are <strong>$<%= @citation.total_cost.to_i / 100%>.00</strong> and payment is due by <%= @citation.court_date %></h4>
     <section class="pay-tabs">
       <div>
 
@@ -23,8 +23,8 @@
         <form action="<%= charge_citation_path(@citation) %>" method="POST">
             <script
               src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= Rails.application.secrets.stripe_publishable_key %>"
-              data-amount=<%= @citation.amount_in_cents %>
+              data-key="<%= ENV['stripe_publishable_key'.freeze] %>"
+              data-amount=<%= @citation.total_cost%>
               data-name="<%= @citation.citation_number %>"
               data-description="citation payment"
               data-locale="auto"
@@ -77,3 +77,4 @@
     </section>
   </div>
 </div>
+
