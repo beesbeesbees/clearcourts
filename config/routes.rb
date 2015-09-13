@@ -26,9 +26,10 @@ Rails.application.routes.draw do
 
   resources :sessions
 
-  authenticated :user, ->(user) {user.admin?} do
-    root to: "admin/home#index", as: :admin_root
+  authenticated :user, ->(user) {user.admin? || user.court_user?} do
+    root to: "admin/citations#index", as: :admin_root
   end
+
   require 'sidekiq/web'
   mount Sidekiq::Web => '/admin/sidekiq'
 
