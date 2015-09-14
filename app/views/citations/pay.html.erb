@@ -2,8 +2,8 @@
 <div id="content">
   <div class="container">
     <h2 class="gray">Let's get this taken care of.</h2>
-    <h4>As a reminder, your citation number is <%= @citation.citation_number %> <span class="green">citation_number</span></h4>
-    <h4 class="text-danger">Your total fees are <strong>$<%= @citation.total_cost.to_i / 100%>.00</strong> and payment is due by <%= @citation.court_date %></h4>
+    <h4>As a reminder, your citation number is <span class="green"><%= @citation.citation_number %></span></h4>
+    <h4 class="text-danger">Your total fees are <strong>$<%= @citation.total_cost.to_i / 100%>.00</strong> and payment is due by <%= @citation.formatted_date(@citation.court_date) %></h4>
     <section class="pay-tabs">
       <div>
 
@@ -19,20 +19,19 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="online">
             <h3>Pay Online</h3>
-                  <div class="text-center">
-        <form action="<%= charge_citation_path(@citation) %>" method="POST">
-            <script
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= ENV['stripe_publishable_key'.freeze] %>"
-              data-amount=<%= @citation.total_cost%>
-              data-name="<%= @citation.citation_number %>"
-              data-description="citation payment"
-              data-locale="auto"
-              data-allow-remember-me="false">
-            </script>
-          </form>
-        </div>
-            <a href="#<%#= stripe_url %>" class="btn btn-primary btn-lg">Click to Pay Now</a>
+              <section>
+                <form action="<%= charge_citation_path(@citation) %>" method="POST">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= ENV['stripe_publishable_key'.freeze] %>"
+                    data-amount=<%= @citation.total_cost%>
+                    data-name="<%= @citation.citation_number %>"
+                    data-description="citation payment"
+                    data-locale="auto"
+                    data-allow-remember-me="false">
+                  </script>
+                </form>
+              </section>
           </div> <!-- #online -->
           <div role="tabpanel" class="tab-pane" id="in-person">
             <h3>In Person</h3>

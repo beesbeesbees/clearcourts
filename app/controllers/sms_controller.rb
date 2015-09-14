@@ -98,11 +98,12 @@ class SmsController < ApplicationController
     if body.to_s=~ /^[0-3][0-9]$/
       @session.update(birth_day: body.to_s.to_i)
       next_state 'citation_3'.freeze
-      @citations= Citation.where(citation_number: @session.citation_number).limit(5)
+      #@citations= Citation.where(citation_number: @session.citation_number).limit(5)
+      @citations= Citation.find_by_session(@session)
       render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: true, citations: @citations}
     else
       next_state 'citation_2'.freeze
-      render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: false}
+      render partial: 'citation_2'.freeze, locals: {body: @body, session: @session, done: false, citations: Citation.none}
     end
   end
 
