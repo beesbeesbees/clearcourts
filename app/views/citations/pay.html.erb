@@ -19,19 +19,19 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="online">
             <h3>Pay Online</h3>
-                  <div >
-        <form action="<%= charge_citation_path(@citation) %>" method="POST">
-            <script
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="<%= ENV['stripe_publishable_key'.freeze] %>"
-              data-amount=<%= @citation.total_cost%>
-              data-name="<%= @citation.citation_number %>"
-              data-description="citation payment"
-              data-locale="auto"
-              data-allow-remember-me="false">
-            </script>
-          </form>
-        </div>
+              <section>
+                <form action="<%= charge_citation_path(@citation) %>" method="POST">
+                  <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= ENV['stripe_publishable_key'.freeze] %>"
+                    data-amount=<%= @citation.total_cost%>
+                    data-name="<%= @citation.citation_number %>"
+                    data-description="citation payment"
+                    data-locale="auto"
+                    data-allow-remember-me="false">
+                  </script>
+                </form>
+              </section>
           </div> <!-- #online -->
           <div role="tabpanel" class="tab-pane" id="in-person">
             <h3>In Person</h3>
